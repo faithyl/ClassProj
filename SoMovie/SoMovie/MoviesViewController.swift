@@ -86,21 +86,17 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        doSearch(["term": searchBar.text, "location": "San Francisco"])
+        doSearch(["q": searchBar.text, "page_limit": "20"])
         searchBar.endEditing(true)
     }
     
     func doSearch(params: [String: String]) {
-        let searchText = params["term"]
+        let searchText = params["q"]
         if (searchText != nil && !searchText!.isEmpty) {
-            /*
-            client.searchWithParams(params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                self.results = (response as NSDictionary)["businesses"] as [NSDictionary]
+            RottenClient.sharedInstance.searchWithParams(params, completion: { (movies, error) -> () in
+                self.movies = movies
                 self.tableView.reloadData()
-                }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                    println(error)
-            }
-            */
+            })
         }
     }
 }

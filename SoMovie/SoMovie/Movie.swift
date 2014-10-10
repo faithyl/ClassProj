@@ -21,8 +21,8 @@ class Movie: NSObject {
     var ratings : NSDictionary
     var audience_score : Int = 0
     var critics_score : Int = 0
-    var release_dates : [String:String]
-    var theatre_release_date : String
+    //var release_dates : [String:String]
+    //var theatre_release_date : String
     var links : [String:String]
     
     init(dictionary: NSDictionary) {
@@ -38,8 +38,8 @@ class Movie: NSObject {
         ratings = dictionary["ratings"] as NSDictionary
         audience_score = ratings["audience_score"] as Int
         critics_score = ratings["critics_score"] as Int
-        release_dates = dictionary["release_dates"] as [String:String]
-        theatre_release_date = release_dates["theater"]! as String
+        //release_dates = dictionary["release_dates"] as [String:String]
+        //theatre_release_date = release_dates["theater"]! as String
         links = dictionary["links"] as [String:String]
     }
     
