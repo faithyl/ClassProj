@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		153F5FB9B37845D2B0D92E60 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6A3E3C6E9948A2949410F3 /* libPods.a */; };
+		2E1E5B6219E7C58B00E29224 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1E5B6119E7C58B00E29224 /* MovieCell.swift */; };
 		2EC0C20319E79F9C00A5D692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C20219E79F9C00A5D692 /* AppDelegate.swift */; };
-		2EC0C20519E79F9C00A5D692 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C20419E79F9C00A5D692 /* ViewController.swift */; };
+		2EC0C20519E79F9C00A5D692 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C20419E79F9C00A5D692 /* MoviesViewController.swift */; };
 		2EC0C20819E79F9C00A5D692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC0C20619E79F9C00A5D692 /* Main.storyboard */; };
 		2EC0C20A19E79F9C00A5D692 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC0C20919E79F9C00A5D692 /* Images.xcassets */; };
 		2EC0C20D19E79F9C00A5D692 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EC0C20B19E79F9C00A5D692 /* LaunchScreen.xib */; };
@@ -31,10 +32,11 @@
 
 /* Begin PBXFileReference section */
 		2B6A3E3C6E9948A2949410F3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E1E5B6119E7C58B00E29224 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		2EC0C1FD19E79F9C00A5D692 /* SoMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC0C20119E79F9C00A5D692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EC0C20219E79F9C00A5D692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2EC0C20419E79F9C00A5D692 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2EC0C20419E79F9C00A5D692 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
 		2EC0C20719E79F9C00A5D692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2EC0C20919E79F9C00A5D692 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2EC0C20C19E79F9C00A5D692 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -95,7 +97,6 @@
 				C9E418A319E7A29900ACFA49 /* View Controllers */,
 				C9E418A219E7A29100ACFA49 /* Views */,
 				2EC0C20219E79F9C00A5D692 /* AppDelegate.swift */,
-				2EC0C20419E79F9C00A5D692 /* ViewController.swift */,
 				2EC0C20619E79F9C00A5D692 /* Main.storyboard */,
 				2EC0C20919E79F9C00A5D692 /* Images.xcassets */,
 				2EC0C20B19E79F9C00A5D692 /* LaunchScreen.xib */,
@@ -150,6 +151,7 @@
 		C9E418A219E7A29100ACFA49 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2E1E5B6119E7C58B00E29224 /* MovieCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -157,6 +159,7 @@
 		C9E418A319E7A29900ACFA49 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2EC0C20419E79F9C00A5D692 /* MoviesViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -305,7 +308,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EC0C22519E7A51D00A5D692 /* FandangoClient.swift in Sources */,
-				2EC0C20519E79F9C00A5D692 /* ViewController.swift in Sources */,
+				2EC0C20519E79F9C00A5D692 /* MoviesViewController.swift in Sources */,
+				2E1E5B6219E7C58B00E29224 /* MovieCell.swift in Sources */,
 				2EC0C22319E7A4FF00A5D692 /* RottenClient.swift in Sources */,
 				2EC0C20319E79F9C00A5D692 /* AppDelegate.swift in Sources */,
 				C9E418A719E7B6A000ACFA49 /* Movie.swift in Sources */,
