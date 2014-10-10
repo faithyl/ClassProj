@@ -14,6 +14,8 @@
 		2EC0C20A19E79F9C00A5D692 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EC0C20919E79F9C00A5D692 /* Images.xcassets */; };
 		2EC0C20D19E79F9C00A5D692 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EC0C20B19E79F9C00A5D692 /* LaunchScreen.xib */; };
 		2EC0C21919E79F9C00A5D692 /* SoMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C21819E79F9C00A5D692 /* SoMovieTests.swift */; };
+		2EC0C22319E7A4FF00A5D692 /* RottenClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C22219E7A4FF00A5D692 /* RottenClient.swift */; };
+		2EC0C22519E7A51D00A5D692 /* FandangoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C22419E7A51D00A5D692 /* FandangoClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		2EC0C21219E79F9C00A5D692 /* SoMovieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoMovieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC0C21719E79F9C00A5D692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EC0C21819E79F9C00A5D692 /* SoMovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoMovieTests.swift; sourceTree = "<group>"; };
+		2EC0C22219E7A4FF00A5D692 /* RottenClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RottenClient.swift; sourceTree = "<group>"; };
+		2EC0C22419E7A51D00A5D692 /* FandangoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FandangoClient.swift; sourceTree = "<group>"; };
 		6AB3E743B191456E9D360A98 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C9E4189E19E7A25900ACFA49 /* SoMovie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoMovie-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +139,8 @@
 		C9E418A119E7A28200ACFA49 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				2EC0C22219E7A4FF00A5D692 /* RottenClient.swift */,
+				2EC0C22419E7A51D00A5D692 /* FandangoClient.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -295,7 +301,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EC0C22519E7A51D00A5D692 /* FandangoClient.swift in Sources */,
 				2EC0C20519E79F9C00A5D692 /* ViewController.swift in Sources */,
+				2EC0C22319E7A4FF00A5D692 /* RottenClient.swift in Sources */,
 				2EC0C20319E79F9C00A5D692 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
