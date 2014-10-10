@@ -18,6 +18,7 @@
 		2EC0C22319E7A4FF00A5D692 /* RottenClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C22219E7A4FF00A5D692 /* RottenClient.swift */; };
 		2EC0C22519E7A51D00A5D692 /* FandangoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C22419E7A51D00A5D692 /* FandangoClient.swift */; };
 		C957E85319E7DD6F00049513 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C957E85219E7DD6F00049513 /* MovieDetailViewController.swift */; };
+		C983EEB119E871B200A48FDF /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983EEB019E871B200A48FDF /* DatePickerViewController.swift */; };
 		C9E418A719E7B6A000ACFA49 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E418A619E7B6A000ACFA49 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		2EC0C22419E7A51D00A5D692 /* FandangoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FandangoClient.swift; sourceTree = "<group>"; };
 		6AB3E743B191456E9D360A98 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C957E85219E7DD6F00049513 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		C983EEB019E871B200A48FDF /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		C9E4189E19E7A25900ACFA49 /* SoMovie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoMovie-Bridging-Header.h"; sourceTree = "<group>"; };
 		C9E418A619E7B6A000ACFA49 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +165,7 @@
 			children = (
 				2EC0C20419E79F9C00A5D692 /* MoviesViewController.swift */,
 				C957E85219E7DD6F00049513 /* MovieDetailViewController.swift */,
+				C983EEB019E871B200A48FDF /* DatePickerViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				2EC0C20519E79F9C00A5D692 /* MoviesViewController.swift in Sources */,
 				2E1E5B6219E7C58B00E29224 /* MovieCell.swift in Sources */,
 				2EC0C22319E7A4FF00A5D692 /* RottenClient.swift in Sources */,
+				C983EEB119E871B200A48FDF /* DatePickerViewController.swift in Sources */,
 				C957E85319E7DD6F00049513 /* MovieDetailViewController.swift in Sources */,
 				2EC0C20319E79F9C00A5D692 /* AppDelegate.swift in Sources */,
 				C9E418A719E7B6A000ACFA49 /* Movie.swift in Sources */,

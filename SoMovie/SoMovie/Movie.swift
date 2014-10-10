@@ -17,7 +17,7 @@ class Movie: NSObject {
     var runtime : Int
     var posters : [String:String]
     var thumbnail : String
-    //var abridgedCast : [NSDictionary]
+    var abridged_cast : [String] = []
     var ratings : NSDictionary
     var audience_score : Int = 0
     var critics_score : Int = 0
@@ -43,7 +43,11 @@ class Movie: NSObject {
         runtime = dictionary["runtime"] as Int
         posters = dictionary["posters"] as [String:String]
         thumbnail = posters["thumbnail"]! as String
-        //abridgedCast = dictionary["abrideged_cast"] as [NSDictionary]
+        if let cast = dictionary["abridged_cast"] as? [NSDictionary] {
+            for actor in cast {
+                abridged_cast.append(actor["name"] as String)
+            }
+        }
         ratings = dictionary["ratings"] as NSDictionary
         audience_score = ratings["audience_score"] as Int
         critics_score = ratings["critics_score"] as Int
