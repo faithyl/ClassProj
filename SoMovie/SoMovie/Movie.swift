@@ -13,14 +13,16 @@ class Movie: NSObject {
     var title : String
     var year : Int
     var synopsis : String
+    var mpaa_rating : String
     var runtime : Int
     var posters : [String:String]
+    var thumbnail : String
     //var abridgedCast : [NSDictionary]
     var ratings : NSDictionary
-    var ratingAudienceScore : Int = 0
-    var ratingCriticsScore : Int = 0
-    var releaseDates : [String:String]
-    var theatreReleaseDate : String
+    var audience_score : Int = 0
+    var critics_score : Int = 0
+    var release_dates : [String:String]
+    var theatre_release_date : String
     var links : [String:String]
     
     init(dictionary: NSDictionary) {
@@ -28,14 +30,16 @@ class Movie: NSObject {
         title = dictionary["title"] as String
         year = dictionary["year"] as Int
         synopsis = dictionary["synopsis"] as String
+        mpaa_rating = dictionary["mpaa_rating"] as String
         runtime = dictionary["runtime"] as Int
         posters = dictionary["posters"] as [String:String]
+        thumbnail = posters["thumbnail"]! as String
         //abridgedCast = dictionary["abrideged_cast"] as [NSDictionary]
         ratings = dictionary["ratings"] as NSDictionary
-        ratingAudienceScore = ratings["audience_score"] as Int
-        ratingCriticsScore = ratings["critics_score"] as Int
-        releaseDates = dictionary["release_dates"] as [String:String]
-        theatreReleaseDate = releaseDates["theater"]! as String
+        audience_score = ratings["audience_score"] as Int
+        critics_score = ratings["critics_score"] as Int
+        release_dates = dictionary["release_dates"] as [String:String]
+        theatre_release_date = release_dates["theater"]! as String
         links = dictionary["links"] as [String:String]
     }
     
