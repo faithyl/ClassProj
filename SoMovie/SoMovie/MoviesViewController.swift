@@ -22,6 +22,9 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.estimatedRowHeight = 77
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refersh")
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
@@ -91,28 +94,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         var cell = tableView.dequeueReusableCellWithIdentifier("MovieCell") as MovieCell
         
         var movie = self.movies?[indexPath.row]
-        
-        
-        cell.movietitleLabel.text = movie["title"] as? String
-        var synopsisText = movie["synopsis"] as String
-        var ratingText = movie["mpaa_rating"] as String
-        var synopsisRating = "\(ratingText), \(synopsisText)"
-        
-        var wordRange = (synopsisRating as NSString).rangeOfString(ratingText)
-        var sysnopsisrMutable = NSMutableAttributedString(string:synopsisRating)
-        
-        sysnopsisrMutable.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFontOfSize(13), range: wordRange)
-        
-        cell.synopsisLabel.attributedText = sysnopsisrMutable
-        
-        var posters = movie["posters"] as NSDictionary
-        var posterUrl = posters["thumbnail"] as String
-        
-        cell.posterImage.setImageWithURL(NSURL(string: posterUrl))
-        
-        //  var cell = UITableViewCell()
-        //    cell.textLabel!.text = "Hello, I'm at row: \(indexPath.row), section: \(indexPath.section)"
-        
+        cell.movie = movie
         return cell
         
     }
