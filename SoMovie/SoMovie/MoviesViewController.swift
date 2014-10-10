@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate  {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,6 +25,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.estimatedRowHeight = 77
         tableView.rowHeight = UITableViewAutomaticDimension
         
+        searchBar = UISearchBar()
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
+        
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refersh")
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
@@ -32,30 +36,12 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.refresh(self)
         
+        searchBar.becomeFirstResponder()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     func refresh(sender:AnyObject)
     {
-        /*
-        var url = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=dagqdghwaq3e3mxyrp7kmmj5&limit=20&country=us"
-        
-        var request = NSURLRequest (URL: NSURL(string: url))
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
-            if (error != nil) {
-                //self.errmsgView.hidden = false
-            } else {
-                var object = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as NSDictionary
-                
-                self.movies = object["movies"] as [NSDictionary]
-                
-                self.tableView.reloadData()
-                //self.errmsgView.hidden = true
-            }
-            self.refreshControl.endRefreshing()
-            
-        }
-        */
         var params = [
             "limit" : "20",
             "country" : "us"
@@ -98,6 +84,24 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
         
     }
-
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        doSearch(["term": searchBar.text, "location": "San Francisco"])
+        searchBar.endEditing(true)
+    }
+    
+    func doSearch(params: [String: String]) {
+        let searchText = params["term"]
+        if (searchText != nil && !searchText!.isEmpty) {
+            /*
+            client.searchWithParams(params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+                self.results = (response as NSDictionary)["businesses"] as [NSDictionary]
+                self.tableView.reloadData()
+                }) { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                    println(error)
+            }
+            */
+        }
+    }
 }
 

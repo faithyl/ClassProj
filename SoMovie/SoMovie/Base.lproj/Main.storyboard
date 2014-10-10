@@ -27,20 +27,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgI-Wp-cE5">
-                                                    <rect key="frame" x="76" y="4" width="205" height="21"/>
+                                                    <rect key="frame" x="76" y="4" width="216" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="fog-Y3-jrR"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Synopsis" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SiX-1E-nst">
-                                                    <rect key="frame" x="76" y="33" width="205" height="36"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="205" id="aqz-hQ-Rxr"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Synopsis" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SiX-1E-nst">
+                                                    <rect key="frame" x="76" y="33" width="216" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -53,13 +50,14 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="SiX-1E-nst" firstAttribute="top" secondItem="fgI-Wp-cE5" secondAttribute="bottom" constant="8" id="0Pp-6c-ubq"/>
+                                                <constraint firstItem="SiX-1E-nst" firstAttribute="top" secondItem="fgI-Wp-cE5" secondAttribute="bottom" constant="5" id="0Pp-6c-ubq"/>
                                                 <constraint firstAttribute="bottom" secondItem="SiX-1E-nst" secondAttribute="bottom" constant="7.5" id="1je-en-WRQ"/>
                                                 <constraint firstAttribute="bottom" secondItem="3Ak-UY-B7h" secondAttribute="bottom" constant="2.5" id="3UN-h2-FPf"/>
                                                 <constraint firstItem="3Ak-UY-B7h" firstAttribute="top" secondItem="eo8-R2-eh6" secondAttribute="top" constant="4" id="5Vq-nq-SpK"/>
                                                 <constraint firstItem="fgI-Wp-cE5" firstAttribute="top" secondItem="eo8-R2-eh6" secondAttribute="top" constant="4" id="IuG-2V-X6Q"/>
                                                 <constraint firstItem="SiX-1E-nst" firstAttribute="leading" secondItem="3Ak-UY-B7h" secondAttribute="trailing" constant="8" id="NBo-EV-yW3"/>
                                                 <constraint firstItem="fgI-Wp-cE5" firstAttribute="leading" secondItem="3Ak-UY-B7h" secondAttribute="trailing" constant="8" id="Pae-eR-YOm"/>
+                                                <constraint firstAttribute="trailing" secondItem="SiX-1E-nst" secondAttribute="trailing" constant="28" id="ThJ-ZZ-UA4"/>
                                                 <constraint firstItem="3Ak-UY-B7h" firstAttribute="leading" secondItem="eo8-R2-eh6" secondAttribute="leading" constant="8" id="oos-mU-Qym"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -80,7 +78,9 @@
                             <constraint firstItem="JVe-h2-e4z" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="jIo-VU-Ajg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="uPG-09-MWn"/>
+                    <navigationItem key="navigationItem" id="uPG-09-MWn">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="IET-ti-YqS"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="JVe-h2-e4z" id="Dzd-Fv-QVP"/>
                     </connections>
