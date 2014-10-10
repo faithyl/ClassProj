@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6F76A5F7-6646-46D4-AC48-0BA361FBA226</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SoMovie</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>FFED2E15E668DFEB1D2E08C55714112C42497588</key>
+		<string>https://github.com/faithyl/ClassProj.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SoMovie/SoMovie.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>FFED2E15E668DFEB1D2E08C55714112C42497588</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/faithyl/ClassProj.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FFED2E15E668DFEB1D2E08C55714112C42497588</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FFED2E15E668DFEB1D2E08C55714112C42497588</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ClassProj</string>
+		</dict>
+	</array>
+</dict>
+</plist>
