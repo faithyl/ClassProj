@@ -24,9 +24,18 @@ class Movie: NSObject {
     var release_dates : [String:String]
     var theatre_release_date : String
     var links : [String:String]
+    var studio : String
+    var genres : [String]
+    var abridged_directors : [String] = []
     
-    init(dictionary: NSDictionary) {
-        id = dictionary["id"] as String
+    init(dictionary: NSDictionary, isDetail: Bool = false) {
+        //the data type of the movie id returned by movie.json is different from the one returned by box_office.json
+        //using isDetail to help distinguish the two
+        if isDetail {
+            id = String(dictionary["id"] as Int)
+        } else {
+            id = dictionary["id"] as String
+        }
         title = dictionary["title"] as String
         year = dictionary["year"] as Int
         synopsis = dictionary["synopsis"] as String
@@ -38,15 +47,22 @@ class Movie: NSObject {
         ratings = dictionary["ratings"] as NSDictionary
         audience_score = ratings["audience_score"] as Int
         critics_score = ratings["critics_score"] as Int
-        release_dates = dictionary["release_dates"] as [String:String]
-        theatre_release_date = release_dates["theater"]! as String
-        links = dictionary["links"] as [String:String]
+        release_dates = (dictionary["release_dates"] as? [String:String]) ?? [String:String]()
+        theatre_release_date = release_dates["theater"] ?? ""
+        links = (dictionary["links"] as? [String:String]) ?? [String:String]()
+        studio = (dictionary["studio"] as? String) ?? ""
+        genres = (dictionary["genres"] as? [String]) ?? []
+        if let directors = dictionary["abridged_directors"] as? [NSDictionary] {
+            for director in directors {
+                abridged_directors.append(director["name"] as String)
+            }
+        }
     }
     
-    class func moviesWithArray(array: [NSDictionary]) -> [Movie] {
+    class func moviesWithArray(array: [NSDictionary], isDetail: Bool = false) -> [Movie] {
         var movies = [Movie]()
         for dictionary in array {
-            movies.append(Movie(dictionary: dictionary))
+            movies.append(Movie(dictionary: dictionary, isDetail: isDetail))
         }
         return movies
     }

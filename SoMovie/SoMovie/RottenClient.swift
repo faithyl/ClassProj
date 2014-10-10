@@ -35,5 +35,19 @@ class RottenClient: BDBOAuth1RequestOperationManager {
             }
         )
     }
-
+    
+    func getMovieDetail(movieId: String, completion: (movie: Movie?, error: NSError?) -> ()) {
+        var parameters = ["apikey" : apiKey]
+        GET("movies/\(movieId).json", parameters: parameters,
+            success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
+                println("movie: \(response)")
+                var movie = Movie(dictionary: response as NSDictionary, isDetail: true)
+                completion(movie: movie, error: nil)
+            },
+            failure: { (operation: AFHTTPRequestOperation!, error:NSError!) -> Void in
+                println("error getting movies from Rotten Tomatoes")
+                completion(movie: nil, error: error)
+            }
+        )
+    }
 }
