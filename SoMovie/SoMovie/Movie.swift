@@ -37,7 +37,7 @@ class Movie: NSObject {
             id = dictionary["id"] as String
         }
         title = dictionary["title"] as String
-        year = dictionary["year"] as Int
+        year = (dictionary["year"] as? Int) ?? 0
         synopsis = dictionary["synopsis"] as String
         mpaa_rating = dictionary["mpaa_rating"] as String
         runtime = dictionary["runtime"] as Int

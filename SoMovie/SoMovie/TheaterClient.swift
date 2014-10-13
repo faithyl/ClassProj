@@ -8,6 +8,6 @@
 
 import UIKit
 
-class FandangoClient: BDBOAuth1RequestOperationManager {
+class TheaterClient: BDBOAuth1RequestOperationManager {
    
 }

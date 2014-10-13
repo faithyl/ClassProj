@@ -24,7 +24,7 @@ class RottenClient: BDBOAuth1RequestOperationManager {
         parameters["apikey"] = apiKey
         GET("lists/movies/box_office.json", parameters: parameters,
             success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
-                //println("movies: \(response)")
+                println("get movies: \(response)")
                 let movieList = response["movies"] as [NSDictionary]
                 var movies = Movie.moviesWithArray(movieList)
                 completion(movies: movies, error: nil)
@@ -43,7 +43,7 @@ class RottenClient: BDBOAuth1RequestOperationManager {
             GET("movies.json" ,
                 parameters: parameters,
                 success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
-                    println("movies: \(response)")
+                    //println("search movies: \(response)")
                     let movieList = response["movies"] as [NSDictionary]
                     var movies = Movie.moviesWithArray(movieList)
                     completion(movies: movies, error: nil)

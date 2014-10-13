@@ -37,6 +37,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         self.refresh(self)
         
         searchBar.becomeFirstResponder()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     

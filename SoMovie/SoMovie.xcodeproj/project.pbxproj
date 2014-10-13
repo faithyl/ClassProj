@@ -16,7 +16,7 @@
 		2EC0C20D19E79F9C00A5D692 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EC0C20B19E79F9C00A5D692 /* LaunchScreen.xib */; };
 		2EC0C21919E79F9C00A5D692 /* SoMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C21819E79F9C00A5D692 /* SoMovieTests.swift */; };
 		2EC0C22319E7A4FF00A5D692 /* RottenClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C22219E7A4FF00A5D692 /* RottenClient.swift */; };
-		2EC0C22519E7A51D00A5D692 /* FandangoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C22419E7A51D00A5D692 /* FandangoClient.swift */; };
+		2EC0C22519E7A51D00A5D692 /* TheaterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C22419E7A51D00A5D692 /* TheaterClient.swift */; };
 		C957E85319E7DD6F00049513 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C957E85219E7DD6F00049513 /* MovieDetailViewController.swift */; };
 		C983EEB119E871B200A48FDF /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983EEB019E871B200A48FDF /* DatePickerViewController.swift */; };
 		C9E418A719E7B6A000ACFA49 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E418A619E7B6A000ACFA49 /* Movie.swift */; };
@@ -46,7 +46,7 @@
 		2EC0C21719E79F9C00A5D692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EC0C21819E79F9C00A5D692 /* SoMovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoMovieTests.swift; sourceTree = "<group>"; };
 		2EC0C22219E7A4FF00A5D692 /* RottenClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RottenClient.swift; sourceTree = "<group>"; };
-		2EC0C22419E7A51D00A5D692 /* FandangoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FandangoClient.swift; sourceTree = "<group>"; };
+		2EC0C22419E7A51D00A5D692 /* TheaterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheaterClient.swift; sourceTree = "<group>"; };
 		6AB3E743B191456E9D360A98 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C957E85219E7DD6F00049513 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		C983EEB019E871B200A48FDF /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				2EC0C22219E7A4FF00A5D692 /* RottenClient.swift */,
-				2EC0C22419E7A51D00A5D692 /* FandangoClient.swift */,
+				2EC0C22419E7A51D00A5D692 /* TheaterClient.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EC0C22519E7A51D00A5D692 /* FandangoClient.swift in Sources */,
+				2EC0C22519E7A51D00A5D692 /* TheaterClient.swift in Sources */,
 				2EC0C20519E79F9C00A5D692 /* MoviesViewController.swift in Sources */,
 				2E1E5B6219E7C58B00E29224 /* MovieCell.swift in Sources */,
 				2EC0C22319E7A4FF00A5D692 /* RottenClient.swift in Sources */,
