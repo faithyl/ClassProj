@@ -1,0 +1,79 @@
+[
+        {
+        location =         {
+            address =             {
+                city = "Santa Clara";
+                country = USA;
+                postalCode = 95054;
+                state = CA;
+                street = "3111 Mission College Blvd.";
+            };
+            distance = "1.82176639755854";
+            geoCode =             {
+                latitude = "37.3881";
+                longitude = "-121.9836";
+            };
+            telephone = "888-262-4386";
+        };
+        name = "AMC Mercado 20";
+        theatreId = 8822;
+    },
+        {
+        location =         {
+            address =             {
+                city = "Mountain View";
+                country = USA;
+                postalCode = 94043;
+                state = CA;
+                street = "1500 N. Shoreline Blvd.";
+            };
+            distance = "3.848167286996822";
+            geoCode =             {
+                latitude = "37.4156";
+                longitude = "-122.0781";
+            };
+            telephone = "800-326-3264";
+        };
+        name = "Century Cinema 16";
+        theatreId = 8431;
+    },
+        {
+        location =         {
+            address =             {
+                city = Cupertino;
+                country = USA;
+                postalCode = 95014;
+                state = CA;
+                street = "10123 N. Wolfe Rd.";
+                street2 = "Suite 3000";
+            };
+            distance = "4.313407425041967";
+            geoCode =             {
+                latitude = "37.3262";
+                longitude = "-122.0144";
+            };
+            telephone = "888-262-4386";
+        };
+        name = "AMC Cupertino Square 16";
+        theatreId = 9311;
+    },
+        {
+        location =         {
+            address =             {
+                city = Cupertino;
+                country = USA;
+                postalCode = 95014;
+                state = CA;
+                street = "21275 Stevens Creek Blvd.";
+            };
+            distance = "4.822139392451877";
+            geoCode =             {
+                latitude = "37.3229";
+                longitude = "-122.0464";
+            };
+            telephone = "408-255-2552";
+        };
+        name = "Bluelight Cinemas 5";
+        theatreId = 10164;
+    }
+]

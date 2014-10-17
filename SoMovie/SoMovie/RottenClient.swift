@@ -24,7 +24,7 @@ class RottenClient: BDBOAuth1RequestOperationManager {
         parameters["apikey"] = apiKey
         GET("lists/movies/box_office.json", parameters: parameters,
             success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
-                println("get movies: \(response)")
+                //println("get movies: \(response)")
                 let movieList = response["movies"] as [NSDictionary]
                 var movies = Movie.moviesWithArray(movieList)
                 completion(movies: movies, error: nil)

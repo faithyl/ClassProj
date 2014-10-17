@@ -40,7 +40,7 @@ class Movie: NSObject {
         year = (dictionary["year"] as? Int) ?? 0
         synopsis = dictionary["synopsis"] as String
         mpaa_rating = dictionary["mpaa_rating"] as String
-        runtime = dictionary["runtime"] as Int
+        runtime = (dictionary["runtime"] as? Int) ?? 0
         posters = dictionary["posters"] as [String:String]
         thumbnail = posters["thumbnail"]! as String
         if let cast = dictionary["abridged_cast"] as? [NSDictionary] {
@@ -66,7 +66,10 @@ class Movie: NSObject {
     class func moviesWithArray(array: [NSDictionary], isDetail: Bool = false) -> [Movie] {
         var movies = [Movie]()
         for dictionary in array {
-            movies.append(Movie(dictionary: dictionary, isDetail: isDetail))
+            var yr = (dictionary["year"] as? Int) ?? 0
+            if (yr >= 2014) {
+                movies.append(Movie(dictionary: dictionary, isDetail: isDetail))
+            }
         }
         return movies
     }

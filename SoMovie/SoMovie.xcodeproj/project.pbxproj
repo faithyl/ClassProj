@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		153F5FB9B37845D2B0D92E60 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B6A3E3C6E9948A2949410F3 /* libPods.a */; };
 		2E1E5B6219E7C58B00E29224 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1E5B6119E7C58B00E29224 /* MovieCell.swift */; };
+		2E2265B719EE6A9400DF8F20 /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2265B619EE6A9400DF8F20 /* Theater.swift */; };
+		2E49DB4E19EFBF7700355C12 /* TheatersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49DB4D19EFBF7700355C12 /* TheatersViewController.swift */; };
+		2E49DB5019EFBF9600355C12 /* TheaterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49DB4F19EFBF9600355C12 /* TheaterCell.swift */; };
 		2EC0C20319E79F9C00A5D692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C20219E79F9C00A5D692 /* AppDelegate.swift */; };
 		2EC0C20519E79F9C00A5D692 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C20419E79F9C00A5D692 /* MoviesViewController.swift */; };
 		2EC0C20819E79F9C00A5D692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC0C20619E79F9C00A5D692 /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 /* Begin PBXFileReference section */
 		2B6A3E3C6E9948A2949410F3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E1E5B6119E7C58B00E29224 /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		2E2265B619EE6A9400DF8F20 /* Theater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
+		2E49DB4D19EFBF7700355C12 /* TheatersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheatersViewController.swift; sourceTree = "<group>"; };
+		2E49DB4F19EFBF9600355C12 /* TheaterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheaterCell.swift; sourceTree = "<group>"; };
 		2EC0C1FD19E79F9C00A5D692 /* SoMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC0C20119E79F9C00A5D692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EC0C20219E79F9C00A5D692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				2E1E5B6119E7C58B00E29224 /* MovieCell.swift */,
+				2E49DB4F19EFBF9600355C12 /* TheaterCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -165,6 +172,7 @@
 			children = (
 				2EC0C20419E79F9C00A5D692 /* MoviesViewController.swift */,
 				C957E85219E7DD6F00049513 /* MovieDetailViewController.swift */,
+				2E49DB4D19EFBF7700355C12 /* TheatersViewController.swift */,
 				C983EEB019E871B200A48FDF /* DatePickerViewController.swift */,
 			);
 			name = "View Controllers";
@@ -174,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				C9E418A619E7B6A000ACFA49 /* Movie.swift */,
+				2E2265B619EE6A9400DF8F20 /* Theater.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -316,8 +325,11 @@
 				2EC0C22519E7A51D00A5D692 /* TheaterClient.swift in Sources */,
 				2EC0C20519E79F9C00A5D692 /* MoviesViewController.swift in Sources */,
 				2E1E5B6219E7C58B00E29224 /* MovieCell.swift in Sources */,
+				2E2265B719EE6A9400DF8F20 /* Theater.swift in Sources */,
 				2EC0C22319E7A4FF00A5D692 /* RottenClient.swift in Sources */,
 				C983EEB119E871B200A48FDF /* DatePickerViewController.swift in Sources */,
+				2E49DB4E19EFBF7700355C12 /* TheatersViewController.swift in Sources */,
+				2E49DB5019EFBF9600355C12 /* TheaterCell.swift in Sources */,
 				C957E85319E7DD6F00049513 /* MovieDetailViewController.swift in Sources */,
 				2EC0C20319E79F9C00A5D692 /* AppDelegate.swift in Sources */,
 				C9E418A719E7B6A000ACFA49 /* Movie.swift in Sources */,

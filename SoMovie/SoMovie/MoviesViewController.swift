@@ -107,6 +107,8 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             var movie = self.movies![indexPath!.row]
             var svc = segue.destinationViewController as MovieDetailViewController
             svc.movieId = movie.id
+        } else if (segue.identifier == "theatersSegue") {
+            var svc = segue.destinationViewController as TheatersViewController
         }
     }
 }
