@@ -20,12 +20,39 @@ class TheaterClient: BDBOAuth1RequestOperationManager {
         return Static.instance
     }
     
-    func getTheaters(theaterZip: String, completion: (theaters: [Theater]?, error: NSError?) -> ()) {
-        var parameters = ["api_key" : theaterapiKey]
+    func getTheaters(params: [String: String], completion: (theaters: [Theater]?, error: NSError?) -> ()) {
+        var parameters = params
+        
+        var theaterZip = parameters.removeValueForKey("zip") as String!
+        parameters["api_key"] = theaterapiKey
         
         GET("theatres?zip=\(theaterZip)", parameters: parameters,
             success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
-                println("get theaters: \(response)")
+                //println("get theaters: \(response)")
+                var theaters = Theater.theatersWithArray(response as [NSDictionary])
+                completion(theaters: theaters, error: nil)
+            },
+            failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                println("error getting Theaters")
+                completion(theaters: nil, error: error)
+            }
+        )
+    }
+    
+    func getTheaterShowtimes(params: [String: String], completion: (theaters: [Theater]?, error: NSError?) -> ()) {
+        var parameters = params
+        
+        var theaterId = parameters.removeValueForKey("theaterId") as String!
+        parameters["api_key"] = theaterapiKey
+        
+        var todaysDate:NSDate = NSDate()
+        var dateFormatter:NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        var DateInFormat:String = dateFormatter.stringFromDate(todaysDate)
+        
+        GET("theatres/\(theaterId)/showings?startDate=\(todaysDate)", parameters: parameters,
+            success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
+                println("theaters showtime: \(response)")
                 var theaters = Theater.theatersWithArray(response as [NSDictionary])
                 completion(theaters: theaters, error: nil)
             },

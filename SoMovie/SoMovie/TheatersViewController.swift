@@ -43,15 +43,13 @@ class TheatersViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func refresh(sender:AnyObject)
     {
-        /*
         var params = [
-            "zip" : "94054",
+            "zip" : "95054",
             "radius" : "10",
             "numTheatres" : "20"
         ]
-        */
         
-        TheaterClient.sharedInstance.getTheaters("95054", completion: { (theaters, error) -> () in
+        TheaterClient.sharedInstance.getTheaters(params, completion: { (theaters, error) -> () in
             if (error != nil) {
                 //self.errmsgView.hidden = false
             } else {

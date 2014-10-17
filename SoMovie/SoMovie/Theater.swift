@@ -33,7 +33,7 @@ class Theater: NSObject {
         postalCode = address["postalCode"] as String!
         country = address["country"] as String!
         distance = location["distance"] as Double!
-        telephone = location["telephone"] as String!
+        telephone = (location["telephone"] as String!) ?? ""
         var geoCode = location["geoCode"] as [String:String]
         longitude = geoCode["longitude"] as String!
         latitude = geoCode["latitude"] as String!
