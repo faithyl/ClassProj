@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import MessageUI
 
-class MovieDetailViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, DatePickerDelegate {
+class MovieDetailViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, DatePickerDelegate, MFMailComposeViewControllerDelegate {
     var movieId : String!
     var movie : Movie!
     var isPresenting : Bool!
+    let app = UIApplication.sharedApplication().delegate as AppDelegate
 
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -29,6 +31,8 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
     @IBOutlet weak var criticsScoreLabel: UILabel!
     @IBOutlet weak var directorLabel: UILabel!
     @IBOutlet weak var castLabel: UILabel!
+    @IBOutlet weak var showtimeList: UISegmentedControl!
+    @IBOutlet weak var showtimeErrMsg: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +57,12 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
             self.audienceScoreLabel.text = String(self.movie.audience_score)
             self.criticsScoreLabel.text = String(self.movie.critics_score)
             self.directorLabel.text = join(", ", self.movie.abridged_directors)
+            self.showtimeList.hidden = true
+            self.showtimeErrMsg.hidden = false
             self.listCast()
             self.recalcScrollViewSize()
         })
+        app.email!.mailComposeDelegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,8 +84,6 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
                 self.castLabel.text = self.castLabel.text! + "\n"
             }
             var actorName = actor["name"]! as String
-            //var character = actor["character"]! as String
-            //self.castLabel.text = self.castLabel.text! + "\(actorName)\t\t\t\(character)\n"
             self.castLabel.text = self.castLabel.text! + "\(actorName)"
         }
         self.castLabel.sizeToFit()
@@ -148,5 +153,38 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
     
     func dateSelected(date: NSDate) {
         setDateButtonTitle(date)
+        //updateSchedule()
+    }
+    func locationChanged(location: String) {
+        //change location here
+        //updateSchedule()
+    }
+    
+    func updateSchedule() {
+        //retrieve theatre showings info here
+    }
+    
+    @IBAction func invokeEmail(sender: UIButton) {
+        if MFMailComposeViewController.canSendMail() {
+            var movieInfo : [String] = []
+            movieInfo.append("Title:\ttitle")
+            movieInfo.append("Runtime:\truntime min")
+            movieInfo.append("Theater:\ttheatre")
+            movieInfo.append("Showtime:\tshowtime")
+            movieInfo.append("Theater Address:\ttheater address")
+            movieInfo.append("Synopsis:\nsysnopsis")
+            var movieInfoString = join("\n", movieInfo)
+            app.email!.setSubject("Movie Invitation - title")
+            app.email!.setMessageBody("test", isHTML: false)
+            self.presentViewController(app.email!, animated: true, completion: nil)
+        } else {
+            var alert = UIAlertController(title: "Alert", message: "Your device cannot send emails", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
 }

@@ -190,6 +190,9 @@
                                                 <state key="normal" title="Email">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="invokeEmail:" destination="BW5-Sb-ffY" eventType="touchUpInside" id="Mdd-gX-JhE"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oT-Ac-bdx">
                                                 <rect key="frame" x="10" y="120" width="300" height="14.5"/>
@@ -308,10 +311,20 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No showings found, please choose another location." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDE-ov-mrr">
+                                                <rect key="frame" x="10" y="80" width="300" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="Kno-pE-SeC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="IAd-dr-0oB" secondAttribute="trailing" constant="10" id="08b-5j-DqB"/>
+                                            <constraint firstItem="0oT-Ac-bdx" firstAttribute="top" secondItem="hDE-ov-mrr" secondAttribute="bottom" constant="12" id="0s0-C8-9eo"/>
                                             <constraint firstItem="Tqv-sl-ZwU" firstAttribute="leading" secondItem="2gr-nl-r5k" secondAttribute="leading" constant="10" id="1Fb-AO-Ha0"/>
                                             <constraint firstAttribute="trailing" secondItem="iVT-Cg-cMH" secondAttribute="trailing" constant="35" id="4GH-F9-ilj"/>
                                             <constraint firstItem="Tqv-sl-ZwU" firstAttribute="top" secondItem="Fw1-AX-AGe" secondAttribute="bottom" id="5Ii-Kw-jlH"/>
@@ -330,12 +343,15 @@
                                             <constraint firstItem="kYt-7l-9Yv" firstAttribute="top" secondItem="ZSC-QI-6cp" secondAttribute="bottom" constant="5" id="Jsu-V8-BWU"/>
                                             <constraint firstAttribute="trailing" secondItem="ixj-9Z-NV2" secondAttribute="trailing" constant="10" id="Mac-Ag-1QN"/>
                                             <constraint firstAttribute="trailing" secondItem="w2s-jn-gZq" secondAttribute="trailing" constant="10" id="OPd-Wj-Ppm"/>
+                                            <constraint firstAttribute="trailing" secondItem="hDE-ov-mrr" secondAttribute="trailing" constant="10" id="QVN-nT-jaj"/>
                                             <constraint firstItem="izp-vN-oB2" firstAttribute="leading" secondItem="bqA-WL-DfS" secondAttribute="trailing" constant="5" id="QnC-kf-sZX"/>
                                             <constraint firstItem="ixj-9Z-NV2" firstAttribute="top" secondItem="izp-vN-oB2" secondAttribute="bottom" constant="5" id="SRv-z0-bG7"/>
                                             <constraint firstItem="deA-dh-Zpy" firstAttribute="leading" secondItem="87g-5r-0UP" secondAttribute="trailing" constant="5" id="Udp-VL-AJv"/>
                                             <constraint firstItem="ixj-9Z-NV2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="deA-dh-Zpy" secondAttribute="trailing" constant="5" id="UtN-V8-rna"/>
                                             <constraint firstItem="EpA-Sw-v8T" firstAttribute="top" secondItem="CRB-1m-SOK" secondAttribute="bottom" constant="5" id="VAi-V9-l3h"/>
                                             <constraint firstItem="Fw1-AX-AGe" firstAttribute="top" secondItem="w2s-jn-gZq" secondAttribute="bottom" id="VqI-FK-ZHl"/>
+                                            <constraint firstItem="hDE-ov-mrr" firstAttribute="leading" secondItem="2gr-nl-r5k" secondAttribute="leading" constant="10" id="XAQ-BU-8gL"/>
+                                            <constraint firstItem="hDE-ov-mrr" firstAttribute="top" secondItem="deA-dh-Zpy" secondAttribute="bottom" constant="5" id="XNh-NT-sHt"/>
                                             <constraint firstItem="w2s-jn-gZq" firstAttribute="top" secondItem="iVT-Cg-cMH" secondAttribute="bottom" constant="5" id="YrP-Pg-Bfu"/>
                                             <constraint firstItem="izp-vN-oB2" firstAttribute="top" secondItem="ZxK-4B-hhg" secondAttribute="bottom" id="aJd-pa-SKY"/>
                                             <constraint firstItem="bqA-WL-DfS" firstAttribute="top" secondItem="ZxK-4B-hhg" secondAttribute="bottom" id="aMC-DF-xxg"/>
@@ -399,6 +415,8 @@
                         <outlet property="ratingLabel" destination="CRB-1m-SOK" id="BcH-nS-c0U"/>
                         <outlet property="runtimeLabel" destination="bqA-WL-DfS" id="QZl-or-Xb9"/>
                         <outlet property="scrollView" destination="qys-p3-jXs" id="Ksg-z6-liY"/>
+                        <outlet property="showtimeErrMsg" destination="hDE-ov-mrr" id="aje-fp-Pqb"/>
+                        <outlet property="showtimeList" destination="IAd-dr-0oB" id="Xxm-Y7-aAd"/>
                         <outlet property="synopsisLabel" destination="0oT-Ac-bdx" id="a9Q-Rc-7x9"/>
                         <outlet property="titleLabel" destination="ZxK-4B-hhg" id="xhD-XO-YId"/>
                     </connections>

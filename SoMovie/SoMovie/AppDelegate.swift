@@ -7,16 +7,25 @@
 //
 
 import UIKit
+import MessageUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var email: MFMailComposeViewController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.setMailComposer()
         return true
+    }
+    
+    func setMailComposer() -> Void {
+        if self.email != nil {
+            self.email = nil
+        }
+        self.email = MFMailComposeViewController()
     }
 
     func applicationWillResignActive(application: UIApplication) {
