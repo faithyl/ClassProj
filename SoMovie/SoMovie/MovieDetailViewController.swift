@@ -53,8 +53,7 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
             self.audienceScoreLabel.text = String(self.movie.audience_score)
             self.criticsScoreLabel.text = String(self.movie.critics_score)
             self.directorLabel.text = join(", ", self.movie.abridged_directors)
-            self.castLabel.text = join("\n", self.movie.abridged_cast)
-            self.castLabel.hidden = true
+            self.listCast()
             self.recalcScrollViewSize()
         })
     }
@@ -71,11 +70,18 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
         self.scrollView.contentSize = CGSize(width:self.view.frame.width, height: scrollViewHeight)
     }
     
-    @IBAction func onCastToggle(sender: UIButton) {
-        self.castLabel.hidden = !self.castLabel.hidden
-        var title = self.castLabel.hidden ? ">" : "v"
-        sender.setTitle(title, forState: UIControlState.Normal)
-        self.recalcScrollViewSize()
+    func listCast() -> Void {
+        self.castLabel.text = ""
+        for actor in self.movie.abridged_cast {
+            if (self.castLabel.text != "") {
+                self.castLabel.text = self.castLabel.text! + "\n"
+            }
+            var actorName = actor["name"]! as String
+            //var character = actor["character"]! as String
+            //self.castLabel.text = self.castLabel.text! + "\(actorName)\t\t\t\(character)\n"
+            self.castLabel.text = self.castLabel.text! + "\(actorName)"
+        }
+        self.castLabel.sizeToFit()
     }
     
     // MARK: - Navigation
