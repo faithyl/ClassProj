@@ -16,7 +16,8 @@ class TheaterShowtimesViewController: UIViewController, UITableViewDataSource, U
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     
-    var theater : Theater?
+    var theater: Theater!
+    var movies : [Movie]?
     var showtimes: [Showtime]?
     
     override func viewDidLoad() {
@@ -43,17 +44,17 @@ class TheaterShowtimesViewController: UIViewController, UITableViewDataSource, U
             "numDays" : "7"
         ]
         
-        TheaterClient.sharedInstance.getTheaterShowtimes(params, completion: { (showtimes, error) -> () in
+        TheaterClient.sharedInstance.getTheaterShowtimes(params, completion: { (movies, error) -> () in
             if (error != nil) {
                 //self.errmsgView.hidden = false
             } else {
-                if (showtimes != nil) {
-                    println("\(showtimes!.count) theater showtimes")
+                if (movies != nil) {
+                    //println("\(theater!.count) theater showtimes")
                 } else {
-                    println("no theater showtimes")
+                    //println("no theater showtimes")
                 }
                 
-                //self.theater = theater
+                self.movies = movies
                 
                 self.tableView.reloadData()
             }
@@ -63,7 +64,7 @@ class TheaterShowtimesViewController: UIViewController, UITableViewDataSource, U
 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.showtimes?.count ?? 0
+        return self.movies?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -72,8 +73,10 @@ class TheaterShowtimesViewController: UIViewController, UITableViewDataSource, U
         
         var cell = tableView.dequeueReusableCellWithIdentifier("ShowtimeCell") as ShowtimeCell
         
-        var showtime = self.showtimes?[indexPath.row]
-        cell.showtime = showtime
+        var movie = self.movies?[indexPath.row]
+        
+        cell.showtime = movie
+        
         return cell
         
     }

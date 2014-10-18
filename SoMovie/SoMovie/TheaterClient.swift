@@ -39,7 +39,7 @@ class TheaterClient: BDBOAuth1RequestOperationManager {
         )
     }
     
-    func getTheaterShowtimes(params: [String: String], completion: (theaters: [Theater]?, error: NSError?) -> ()) {
+    func getTheaterShowtimes(params: [String: String], completion: (movies: [Movie]?, error: NSError?) -> ()) {
         var parameters = params
         
         var theaterId = parameters.removeValueForKey("theaterId") as String!
@@ -53,12 +53,12 @@ class TheaterClient: BDBOAuth1RequestOperationManager {
         GET("theatres/\(theaterId)/showings?startDate=\(DateInFormat)", parameters: parameters,
             success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
                 println("theaters showtime: \(response)")
-                var theaters = Theater.theatersWithArray(response as [NSDictionary])
-                completion(theaters: theaters, error: nil)
+                var movies = Movie.moviesWithArray(response as [NSDictionary], isRotten: false)
+                completion(movies: movies, error: nil)
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                 println("error getting theater showtimes")
-                completion(theaters: nil, error: error)
+                completion(movies: nil, error: error)
             }
         )
     }
