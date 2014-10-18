@@ -21,22 +21,40 @@ class Theater: NSObject {
     var telephone : String
     var longitude : String
     var latitude : String
+    var showtimes : [Showtime] = []
     
     init(dictionary: NSDictionary) {
-        id = dictionary["theatreId"] as String!
-        name = dictionary["name"] as String
-        var location = dictionary["location"] as NSDictionary
-        var address = location["address"] as [String:String]
-        street = address["street"] as String!
-        city = address["city"] as String!
-        state = address["state"] as String!
-        postalCode = address["postalCode"] as String!
-        country = address["country"] as String!
-        distance = location["distance"] as Double!
-        telephone = (location["telephone"] as String!) ?? ""
-        var geoCode = location["geoCode"] as [String:String]
-        longitude = geoCode["longitude"] as String!
-        latitude = geoCode["latitude"] as String!
+        if (dictionary["rootId"] == nil) {
+            id = dictionary["theatreId"] as String!
+            name = dictionary["name"] as String
+            var location = dictionary["location"] as NSDictionary
+            var address = location["address"] as [String:String]
+            street = address["street"] as String!
+            city = address["city"] as String!
+            state = address["state"] as String!
+            postalCode = address["postalCode"] as String!
+            country = address["country"] as String!
+            distance = location["distance"] as Double!
+            telephone = (location["telephone"] as String!) ?? ""
+            var geoCode = location["geoCode"] as [String:String]
+            longitude = geoCode["longitude"] as String!
+            latitude = geoCode["latitude"] as String!
+        } else {
+            id = ""
+            name = ""
+            street = ""
+            city = ""
+            state = ""
+            postalCode = ""
+            country = ""
+            distance = 0
+            telephone = ""
+            longitude = ""
+            latitude = ""
+            //if (dictionary["showtimes"] != nil) {
+                showtimes = (Showtime.showtimesWithArray(dictionary["showtimes"] as [NSDictionary]))
+            //}
+        }
     }
     
     class func theatersWithArray(array: [NSDictionary]) -> [Theater] {

@@ -50,14 +50,14 @@ class TheaterClient: BDBOAuth1RequestOperationManager {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         var DateInFormat:String = dateFormatter.stringFromDate(todaysDate)
         
-        GET("theatres/\(theaterId)/showings?startDate=\(todaysDate)", parameters: parameters,
+        GET("theatres/\(theaterId)/showings?startDate=\(DateInFormat)", parameters: parameters,
             success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
                 println("theaters showtime: \(response)")
                 var theaters = Theater.theatersWithArray(response as [NSDictionary])
                 completion(theaters: theaters, error: nil)
             },
             failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                println("error getting Theaters")
+                println("error getting theater showtimes")
                 completion(theaters: nil, error: error)
             }
         )

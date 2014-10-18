@@ -45,6 +45,9 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Synopsis" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SiX-1E-nst">
                                                     <rect key="frame" x="76" y="33" width="216" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="216" id="upT-Z2-jpN"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -58,16 +61,15 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="SiX-1E-nst" firstAttribute="leading" secondItem="3Ak-UY-B7h" secondAttribute="trailing" constant="8" id="1SU-Sh-erE"/>
+                                                <constraint firstAttribute="bottom" secondItem="SiX-1E-nst" secondAttribute="bottom" constant="7.5" id="3Aa-3j-34h"/>
                                                 <constraint firstAttribute="bottom" secondItem="3Ak-UY-B7h" secondAttribute="bottom" constant="2.5" id="3UN-h2-FPf"/>
                                                 <constraint firstItem="3Ak-UY-B7h" firstAttribute="top" secondItem="eo8-R2-eh6" secondAttribute="top" constant="4" id="5Vq-nq-SpK"/>
+                                                <constraint firstItem="SiX-1E-nst" firstAttribute="top" secondItem="fgI-Wp-cE5" secondAttribute="bottom" constant="8" id="7qW-8r-JUq"/>
                                                 <constraint firstItem="fgI-Wp-cE5" firstAttribute="leading" secondItem="3Ak-UY-B7h" secondAttribute="trailing" constant="8" id="DYW-nT-4ZM"/>
                                                 <constraint firstAttribute="trailing" secondItem="fgI-Wp-cE5" secondAttribute="trailing" constant="5" id="Im6-sT-ejQ"/>
-                                                <constraint firstAttribute="trailing" secondItem="SiX-1E-nst" secondAttribute="trailing" constant="5" id="QkZ-NB-0lT"/>
-                                                <constraint firstItem="SiX-1E-nst" firstAttribute="top" secondItem="fgI-Wp-cE5" secondAttribute="bottom" constant="8" id="Uwn-8s-Zbf"/>
                                                 <constraint firstItem="fgI-Wp-cE5" firstAttribute="top" secondItem="eo8-R2-eh6" secondAttribute="top" constant="4" id="oJh-Su-9RD"/>
                                                 <constraint firstItem="3Ak-UY-B7h" firstAttribute="leading" secondItem="eo8-R2-eh6" secondAttribute="leading" constant="8" id="oos-mU-Qym"/>
-                                                <constraint firstAttribute="bottom" secondItem="SiX-1E-nst" secondAttribute="bottom" constant="8" id="wVJ-BM-CQ1"/>
-                                                <constraint firstItem="SiX-1E-nst" firstAttribute="leading" secondItem="3Ak-UY-B7h" secondAttribute="trailing" constant="8" id="ysh-N6-R8m"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -100,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="255" y="44"/>
+            <point key="canvasLocation" x="274" y="44"/>
         </scene>
         <!--Movie Detail View Controller-->
         <scene sceneID="ybY-a7-gKI">
@@ -529,7 +531,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TheaterCell" rowHeight="58" id="cQp-2o-1PZ" customClass="TheaterCell" customModule="SoMovie" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TheaterCell" rowHeight="58" id="cQp-2o-1PZ" customClass="TheaterCell" customModule="SoMovie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cQp-2o-1PZ" id="KKi-D6-qok">
@@ -582,6 +584,7 @@
                                             <outlet property="address2Label" destination="zfH-UA-hGm" id="1mk-Sn-c9g"/>
                                             <outlet property="distLabel" destination="6Hk-VM-Q2E" id="hS5-7b-Mp7"/>
                                             <outlet property="theaternameLabel" destination="SM7-rb-RAc" id="klL-K2-9wB"/>
+                                            <segue destination="cQW-4W-UZd" kind="push" identifier="theaterstSegue" id="2I6-Mf-fpc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -604,10 +607,10 @@
             </objects>
             <point key="canvasLocation" x="255" y="756"/>
         </scene>
-        <!--View Controller-->
+        <!--Theater Showtimes View Controller-->
         <scene sceneID="hlm-5V-wpc">
             <objects>
-                <viewController id="cQW-4W-UZd" sceneMemberID="viewController">
+                <viewController id="cQW-4W-UZd" customClass="TheaterShowtimesViewController" customModule="SoMovie" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Cua-SJ-F9R"/>
                         <viewControllerLayoutGuide type="bottom" id="YIU-Fa-dAp"/>
@@ -625,20 +628,20 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mrz-Hf-ILZ">
-                                        <rect key="frame" x="125" y="29" width="160" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Street" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mrz-Hf-ILZ">
+                                        <rect key="frame" x="125" y="29" width="187" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLz-cm-gCl">
-                                        <rect key="frame" x="125" y="61" width="50" height="21"/>
+                                        <rect key="frame" x="125" y="61" width="187" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address 2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBg-a3-6CR">
-                                        <rect key="frame" x="125" y="44" width="78" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBg-a3-6CR">
+                                        <rect key="frame" x="125" y="44" width="187" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -646,9 +649,45 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.36325101360000001" green="0.73100652619999995" blue="0.92623963649999996" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4iR-2J-rNt">
+                                <rect key="frame" x="0.0" y="159" width="320" height="409"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShowtimeCell" rowHeight="61" id="kMg-Mi-NYJ" customClass="ShowtimeCell" customModule="SoMovie" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kMg-Mi-NYJ" id="mXu-VF-JzX">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Dd-fc-e4o">
+                                                    <rect key="frame" x="8" y="4" width="47" height="52"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lg-Xa-kkE">
+                                                    <rect key="frame" x="63" y="0.0" width="240" height="21"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="movietitleLabel" destination="7Lg-Xa-kkE" id="dz3-IP-QrG"/>
+                                            <outlet property="posterImage" destination="6Dd-fc-e4o" id="iAw-CK-O5c"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="jLE-iS-rvk"/>
+                    <connections>
+                        <outlet property="addressLabel" destination="nBg-a3-6CR" id="mJt-S2-96c"/>
+                        <outlet property="phoneLabel" destination="VLz-cm-gCl" id="Awz-bN-Kv5"/>
+                        <outlet property="streetLabel" destination="Mrz-Hf-ILZ" id="ahP-Qw-GAh"/>
+                        <outlet property="tableView" destination="4iR-2J-rNt" id="RXC-GK-KVE"/>
+                        <outlet property="theaternameLabel" destination="LgD-8K-3ci" id="meP-FM-Ngo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrM-GD-l0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
