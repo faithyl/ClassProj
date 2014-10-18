@@ -97,5 +97,13 @@ class TheatersViewController: UIViewController, UITableViewDataSource, UITableVi
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "theaterstSegue" {
+            var indexPath = tableView.indexPathForSelectedRow()
+            var theater = self.theaters![indexPath!.row]
+            var svc = segue.destinationViewController as TheaterShowtimesViewController
+            svc.theater = self.theaters![indexPath!.row]        }
+    }
 
 }
