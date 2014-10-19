@@ -70,13 +70,18 @@ class Movie: NSObject {
         } else {
             id = dictionary["rootId"] as String
             year = dictionary["releaseYear"] as Int
-            synopsis = dictionary["longDescription"] as String
-            var mpaa_ratings = dictionary["ratings"] as NSDictionary
-            var mpaa = mpaa_ratings[0] as NSDictionary
-            mpaa_rating = mpaa["code"] as String
+            synopsis = (dictionary["longDescription"] as? String) ?? ""
+            if (dictionary["ratings"] != nil) {
+                var mpaa_ratings = dictionary["ratings"] as [NSDictionary]
+                var mpaa = mpaa_ratings[0] as [String:String]
+                mpaa_rating = mpaa["code"] as String!
+            } else {
+                mpaa_rating = ""
+            }
             runtime = 0
-            posters = dictionary["preferredImage"] as [String : String]
-            thumbnail = posters["uri"]! as String
+            posters = [String:String]()
+            var posterInfo = dictionary["preferredImage"] as NSDictionary
+            thumbnail = posterInfo["uri"] as String
             if let cast = dictionary["topCast"] as? [String] {
                 for item in cast {
                     var mapping = ["name" : item as String]
@@ -99,10 +104,17 @@ class Movie: NSObject {
     
     class func moviesWithArray(array: [NSDictionary], isDetail: Bool = false, isRotten: Bool = true) -> [Movie] {
         var movies = [Movie]()
+        var yr : Int
+        
         for dictionary in array {
-            var yr = (dictionary["year"] as? Int) ?? 0
+            println(dictionary)
+            if (isRotten == false) {
+                yr = (dictionary["releaseYear"] as? Int) ?? 0
+            } else {
+                yr = (dictionary["year"] as? Int) ?? 0
+            }
             if (yr >= 2014) {
-                movies.append(Movie(dictionary: dictionary, isDetail: isDetail))
+                movies.append(Movie(dictionary: dictionary, isDetail: isDetail, isRotten: isRotten))
             }
         }
         return movies
