@@ -43,14 +43,20 @@ class TheaterClient: BDBOAuth1RequestOperationManager {
         var parameters = params
         
         var theaterId = parameters.removeValueForKey("theaterId") as String!
+        var startDate : String
         parameters["api_key"] = theaterapiKey
         
-        var todaysDate:NSDate = NSDate()
-        var dateFormatter:NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        var DateInFormat:String = dateFormatter.stringFromDate(todaysDate)
-        
-        GET("theatres/\(theaterId)/showings?startDate=\(DateInFormat)", parameters: parameters,
+        if (parameters["startDate"] != nil){
+            startDate = parameters["startDate"] as String!
+        } else {
+            var todaysDate:NSDate = NSDate()
+            var dateFormatter:NSDateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            var DateInFormat:String = dateFormatter.stringFromDate(todaysDate)
+            startDate = DateInFormat
+        }
+
+        GET("theatres/\(theaterId)/showings?startDate=\(startDate)", parameters: parameters,
             success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
                 println("theaters showtime: \(response)")
                 var movies = Movie.moviesWithArray(response as [NSDictionary], isRotten: false)

@@ -14,17 +14,19 @@ class Showtime: NSObject {
     var theaterName : String
     var barg : Int
     var dateTime : String
-    var ticketURI : String
-    var quals : String
+    var ticketURI : String?
+    var quals : String?
     
     init(dictionary: NSDictionary) {
         var theatre = dictionary["theatre"] as NSDictionary
         theaterId = theatre["id"] as String!
         theaterName = theatre["name"] as String!
         barg = dictionary["barg"] as Int!
-        dateTime = dictionary["dateTime"] as String!
-        ticketURI = dictionary["ticketURI"] as String!
-        quals = dictionary["quals"] as String!
+        var dt = dictionary["dateTime"] as String!
+        var range = dt.rangeOfString("T") as Range!
+        dateTime = dt.substringFromIndex(range.endIndex)
+        ticketURI = (dictionary["ticketURI"] as String!) ?? ""
+        quals = (dictionary["quals"] as String!) ?? ""
     }
     
     

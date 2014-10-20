@@ -670,6 +670,13 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nQk-CQ-ctE">
+                                                    <rect key="frame" x="63" y="28" width="113" height="29"/>
+                                                    <segments>
+                                                        <segment title="11:30"/>
+                                                        <segment title="13:30"/>
+                                                    </segments>
+                                                </segmentedControl>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="6Dd-fc-e4o" firstAttribute="top" secondItem="mXu-VF-JzX" secondAttribute="top" constant="4" id="JJT-rS-ldM"/>
@@ -682,6 +689,7 @@
                                         <connections>
                                             <outlet property="movietitleLabel" destination="7Lg-Xa-kkE" id="dz3-IP-QrG"/>
                                             <outlet property="posterImage" destination="6Dd-fc-e4o" id="iAw-CK-O5c"/>
+                                            <outlet property="showtimeSegment" destination="nQk-CQ-ctE" id="CyA-pf-esT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

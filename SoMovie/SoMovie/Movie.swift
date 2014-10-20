@@ -25,7 +25,7 @@ class Movie: NSObject {
     var theatre_release_date : String
     var links : [String:String]
     var studio : String
-    var genres : [String]
+    var genres : [String] = []
     var abridged_directors : [String] = []
     var showtimes : [Showtime] = []
     
@@ -78,7 +78,24 @@ class Movie: NSObject {
             } else {
                 mpaa_rating = ""
             }
-            runtime = 0
+            if (dictionary["runTime"] != nil) {
+                var rt = dictionary["runTime"] as String
+                rt = rt.substringFromIndex(advance(minElement(indices(rt)), 2))
+                let digits = NSCharacterSet.decimalDigitCharacterSet()
+                var rttemp : String = ""
+                var runtimeh : Int = 0
+                for char in rt.unicodeScalars {
+                    if digits.longCharacterIsMember(char.value) {
+                        rttemp.append(char)
+                    } else if (char == "H") {
+                        runtimeh = rttemp.toInt()! * 60 as Int
+                        rttemp = ""
+                    }
+                }
+                runtime = runtimeh + rttemp.toInt()! as Int
+            } else {
+                runtime = 0
+            }
             posters = [String:String]()
             var posterInfo = dictionary["preferredImage"] as NSDictionary
             thumbnail = posterInfo["uri"] as String
@@ -96,7 +113,9 @@ class Movie: NSObject {
             theatre_release_date = ""
             links = [String:String]()
             studio = ""
-            genres = dictionary["genres"] as [String]
+            if (dictionary["genres"] != nil) {
+                genres = dictionary["genres"] as [String]
+            }
             ratings = [String:String]()
             showtimes = (Showtime.showtimesWithArray(dictionary["showtimes"] as [NSDictionary]))
         }
