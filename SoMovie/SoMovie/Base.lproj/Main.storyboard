@@ -664,25 +664,32 @@
                                                         <constraint firstAttribute="width" constant="47" id="qYZ-0b-AOq"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Movie Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lg-Xa-kkE">
-                                                    <rect key="frame" x="63" y="4" width="240" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lg-Xa-kkE">
+                                                    <rect key="frame" x="63" y="4" width="240" height="29"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nQk-CQ-ctE">
-                                                    <rect key="frame" x="63" y="28" width="113" height="29"/>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nQk-CQ-ctE">
+                                                    <rect key="frame" x="63" y="28" width="113" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="Cyq-SE-hT2"/>
+                                                    </constraints>
                                                     <segments>
                                                         <segment title="11:30"/>
                                                         <segment title="13:30"/>
                                                     </segments>
+                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="nQk-CQ-ctE" firstAttribute="top" secondItem="7Lg-Xa-kkE" secondAttribute="bottom" constant="3" id="Euj-7D-uEg"/>
+                                                <constraint firstAttribute="bottom" secondItem="nQk-CQ-ctE" secondAttribute="bottom" constant="4.5" id="Fbn-U0-x0C"/>
                                                 <constraint firstItem="6Dd-fc-e4o" firstAttribute="top" secondItem="mXu-VF-JzX" secondAttribute="top" constant="4" id="JJT-rS-ldM"/>
                                                 <constraint firstItem="7Lg-Xa-kkE" firstAttribute="leading" secondItem="6Dd-fc-e4o" secondAttribute="trailing" constant="8" id="JbQ-Oi-OH4"/>
                                                 <constraint firstItem="6Dd-fc-e4o" firstAttribute="leading" secondItem="mXu-VF-JzX" secondAttribute="leading" constant="8" id="Lm5-fF-GHC"/>
                                                 <constraint firstItem="7Lg-Xa-kkE" firstAttribute="top" secondItem="mXu-VF-JzX" secondAttribute="top" constant="4" id="dYJ-yF-X1z"/>
+                                                <constraint firstItem="nQk-CQ-ctE" firstAttribute="leading" secondItem="6Dd-fc-e4o" secondAttribute="trailing" constant="8" id="nK4-hf-GGc"/>
                                                 <constraint firstAttribute="trailing" secondItem="7Lg-Xa-kkE" secondAttribute="trailing" constant="17" id="rkf-dB-XqX"/>
                                             </constraints>
                                         </tableViewCellContentView>

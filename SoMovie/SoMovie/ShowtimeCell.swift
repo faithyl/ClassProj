@@ -22,11 +22,18 @@ class ShowtimeCell: UITableViewCell {
             movietitleLabel.text = movie?.title
             var showtimes = movie.showtimes as [Showtime]!
             println(showtimes)
+            var iCount : Int = 0
             for item in showtimes {
                 let st = item as Showtime!
-                var time = st["dateTime"] as String!
-                showtimeSegment.description
+                var time = st.dateTime as String!
+                if (iCount >= 2) {
+                    showtimeSegment.insertSegmentWithTitle(time, atIndex: iCount, animated: true)
+                } else {
+                    showtimeSegment.setTitle(time, forSegmentAtIndex: iCount)
+                }
+                iCount += 1
             }
+            showtimeSegment.selectedSegmentIndex = 0
         }
     }
     
