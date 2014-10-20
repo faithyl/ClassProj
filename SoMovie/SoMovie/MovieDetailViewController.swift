@@ -98,8 +98,12 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
         var vc = segue.destinationViewController as UIViewController
         vc.modalPresentationStyle = UIModalPresentationStyle.Custom
         vc.transitioningDelegate = self
-        var dvc = vc as DatePickerViewController
-        dvc.delegate = self
+        if segue.identifier == "datePickerSegue" {
+            var dvc = vc as DatePickerViewController
+            dvc.delegate = self
+        } else if segue.identifier == "" {
+    
+        }
     }
     
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
