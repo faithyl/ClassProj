@@ -15,9 +15,11 @@ class ShowtimeCell: UITableViewCell {
     
     var showtimeSegment: UISegmentedControl!
     
-    var showtime : Showtime! {
-        willSet(theater) {
-
+    var showtime : Movie! {
+        willSet(movie) {
+            var posterURL = movie?.thumbnail as String!
+            posterImage.setImageWithURL(NSURL(string: posterURL))
+            movietitleLabel.text = movie?.title
             }
     }
     
