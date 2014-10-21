@@ -13,9 +13,12 @@ class ShowtimeCell: UITableViewCell {
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movietitleLabel: UILabel!
     @IBOutlet weak var showtimeSegment: UISegmentedControl!
-    
+    @IBOutlet weak var stscrollView: UIScrollView!
     
     var showtime : Movie! {
+        
+        //showtimeSegment2.frame = CGRectMake(63, 50, 113, 21)
+            
         willSet(movie) {
             var posterURL = movie?.thumbnail as String!
             posterImage.setImageWithURL(NSURL(string: posterURL))
@@ -34,6 +37,10 @@ class ShowtimeCell: UITableViewCell {
                 iCount += 1
             }
             showtimeSegment.selectedSegmentIndex = 0
+            if (showtimes.count < 2) {
+                showtimeSegment.removeSegmentAtIndex(1, animated: false)
+            }
+            stscrollView.contentSize.width = showtimeSegment.frame.width
         }
     }
     

@@ -146,7 +146,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ra" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRB-1m-SOK">
-                                                <rect key="frame" x="30" y="30" width="15.5" height="20"/>
+                                                <rect key="frame" x="30" y="30" width="16" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="cbu-9N-Mg2"/>
                                                 </constraints>
@@ -155,7 +155,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqA-WL-DfS">
-                                                <rect key="frame" x="50" y="30" width="30.5" height="20"/>
+                                                <rect key="frame" x="50" y="30" width="31" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="h4p-Gr-dvH"/>
                                                 </constraints>
@@ -163,8 +163,8 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izp-vN-oB2">
-                                                <rect key="frame" x="85" y="30" width="30.5" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izp-vN-oB2">
+                                                <rect key="frame" x="85" y="30" width="31" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="epG-dA-MeF"/>
                                                 </constraints>
@@ -194,7 +194,7 @@
                                                 </state>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oT-Ac-bdx">
-                                                <rect key="frame" x="10" y="120" width="300" height="14.5"/>
+                                                <rect key="frame" x="10" y="120" width="300" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="300" id="rqe-MY-PP9"/>
                                                 </constraints>
@@ -213,7 +213,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwE-1r-39f">
-                                                <rect key="frame" x="110" y="139" width="30.5" height="20"/>
+                                                <rect key="frame" x="110" y="139" width="31" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="Slh-8P-TJR"/>
                                                 </constraints>
@@ -232,7 +232,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVT-Cg-cMH">
-                                                <rect key="frame" x="254" y="139" width="30.5" height="19.5"/>
+                                                <rect key="frame" x="254" y="139" width="31" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="8E1-cE-FXo"/>
                                                 </constraints>
@@ -647,11 +647,11 @@
                                     <constraint firstAttribute="bottom" secondItem="VLz-cm-gCl" secondAttribute="bottom" constant="8" id="zaQ-Cg-0CG"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="61" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4iR-2J-rNt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4iR-2J-rNt">
                                 <rect key="frame" x="0.0" y="159" width="320" height="409"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShowtimeCell" rowHeight="61" id="kMg-Mi-NYJ" customClass="ShowtimeCell" customModule="SoMovie" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShowtimeCell" rowHeight="68" id="kMg-Mi-NYJ" customClass="ShowtimeCell" customModule="SoMovie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kMg-Mi-NYJ" id="mXu-VF-JzX">
@@ -664,32 +664,43 @@
                                                         <constraint firstAttribute="width" constant="47" id="qYZ-0b-AOq"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lg-Xa-kkE">
-                                                    <rect key="frame" x="63" y="4" width="240" height="29"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Movie Title" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lg-Xa-kkE">
+                                                    <rect key="frame" x="63" y="4" width="240" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nQk-CQ-ctE">
-                                                    <rect key="frame" x="63" y="28" width="113" height="21"/>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BAT-eM-IS7">
+                                                    <rect key="frame" x="63" y="26" width="249" height="34"/>
+                                                    <subviews>
+                                                        <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nQk-CQ-ctE">
+                                                            <rect key="frame" x="0.0" y="4" width="113" height="24"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="23" id="OtV-1o-AsH"/>
+                                                            </constraints>
+                                                            <segments>
+                                                                <segment title="11:30"/>
+                                                                <segment title="13:30"/>
+                                                            </segments>
+                                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </segmentedControl>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="Cyq-SE-hT2"/>
+                                                        <constraint firstItem="nQk-CQ-ctE" firstAttribute="top" secondItem="BAT-eM-IS7" secondAttribute="top" constant="4" id="4CM-d0-bCl"/>
+                                                        <constraint firstItem="nQk-CQ-ctE" firstAttribute="leading" secondItem="BAT-eM-IS7" secondAttribute="leading" id="FtC-yI-v2i"/>
+                                                        <constraint firstAttribute="height" constant="34" id="X9q-vs-6VQ"/>
                                                     </constraints>
-                                                    <segments>
-                                                        <segment title="11:30"/>
-                                                        <segment title="13:30"/>
-                                                    </segments>
-                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                </segmentedControl>
+                                                </scrollView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="nQk-CQ-ctE" firstAttribute="top" secondItem="7Lg-Xa-kkE" secondAttribute="bottom" constant="3" id="Euj-7D-uEg"/>
-                                                <constraint firstAttribute="bottom" secondItem="nQk-CQ-ctE" secondAttribute="bottom" constant="4.5" id="Fbn-U0-x0C"/>
+                                                <constraint firstItem="BAT-eM-IS7" firstAttribute="leading" secondItem="6Dd-fc-e4o" secondAttribute="trailing" constant="8" id="2E8-m5-wJ6"/>
+                                                <constraint firstAttribute="bottom" secondItem="BAT-eM-IS7" secondAttribute="bottom" constant="8" id="BUi-7P-5Rs"/>
                                                 <constraint firstItem="6Dd-fc-e4o" firstAttribute="top" secondItem="mXu-VF-JzX" secondAttribute="top" constant="4" id="JJT-rS-ldM"/>
                                                 <constraint firstItem="7Lg-Xa-kkE" firstAttribute="leading" secondItem="6Dd-fc-e4o" secondAttribute="trailing" constant="8" id="JbQ-Oi-OH4"/>
                                                 <constraint firstItem="6Dd-fc-e4o" firstAttribute="leading" secondItem="mXu-VF-JzX" secondAttribute="leading" constant="8" id="Lm5-fF-GHC"/>
+                                                <constraint firstAttribute="trailing" secondItem="BAT-eM-IS7" secondAttribute="trailing" constant="8" id="QWE-xU-bHl"/>
                                                 <constraint firstItem="7Lg-Xa-kkE" firstAttribute="top" secondItem="mXu-VF-JzX" secondAttribute="top" constant="4" id="dYJ-yF-X1z"/>
-                                                <constraint firstItem="nQk-CQ-ctE" firstAttribute="leading" secondItem="6Dd-fc-e4o" secondAttribute="trailing" constant="8" id="nK4-hf-GGc"/>
+                                                <constraint firstItem="BAT-eM-IS7" firstAttribute="top" secondItem="7Lg-Xa-kkE" secondAttribute="bottom" constant="2" id="rdX-3Z-EtF"/>
                                                 <constraint firstAttribute="trailing" secondItem="7Lg-Xa-kkE" secondAttribute="trailing" constant="17" id="rkf-dB-XqX"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -697,6 +708,7 @@
                                             <outlet property="movietitleLabel" destination="7Lg-Xa-kkE" id="dz3-IP-QrG"/>
                                             <outlet property="posterImage" destination="6Dd-fc-e4o" id="iAw-CK-O5c"/>
                                             <outlet property="showtimeSegment" destination="nQk-CQ-ctE" id="CyA-pf-esT"/>
+                                            <outlet property="stscrollView" destination="BAT-eM-IS7" id="W10-ae-FeM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
