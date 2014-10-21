@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
 
-class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate  {
+class MoviesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, CLLocationManagerDelegate  {
+    let locationManager = CLLocationManager()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -16,9 +18,20 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     var searchBar: UISearchBar!
     
     var movies : [Movie]?
+    var currentCoord : CLLocationCoordinate2D!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        //self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        if (CLLocationManager.locationServicesEnabled())
+        {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.startUpdatingLocation()
+        }
+
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -31,10 +44,10 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refersh")
-        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl.addTarget(self, action: "refreshTMS:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(self.refreshControl)
         
-        self.refresh(self)
+        self.refreshTMS(self)
         
         searchBar.becomeFirstResponder()
         
@@ -65,6 +78,32 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     }
     
+    func refreshTMS(sender:AnyObject)
+    {
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        var params : [String:String] = [
+            "startDate" : formatter.stringFromDate(NSDate()),
+            "radius" : "10"
+        ]
+        let nf = NSNumberFormatter()
+        nf.numberStyle = .DecimalStyle
+        //default: san francisco
+        //let coord = (self.currentCoord != nil) ? self.currentCoord : CLLocationCoordinate2DMake(37.7833, -122.4167)
+        let coord = CLLocationCoordinate2DMake(37.7833, -122.4167)
+        params["lat"] = nf.stringFromNumber(coord.latitude)
+        params["lng"] = nf.stringFromNumber(coord.longitude)
+        TheaterClient.sharedInstance.getMovies(params, completion: { (movies, error) -> () in
+            if error != nil {
+                println("failed to bind movies")
+            } else {
+                self.movies = movies
+                self.tableView.reloadData()
+            }
+            self.refreshControl.endRefreshing()
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -87,29 +126,36 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        doSearch(["q": searchBar.text, "page_limit": "20"])
+        doSearch(["q": searchBar.text])
         searchBar.endEditing(true)
     }
-    
+        
     func doSearch(params: [String: String]) {
         let searchText = params["q"]
         if (searchText != nil && !searchText!.isEmpty) {
-            RottenClient.sharedInstance.searchWithParams(params, completion: { (movies, error) -> () in
+            TheaterClient.sharedInstance.searchPrograms(params, completion: { (movies, error) -> () in
                 self.movies = movies
                 self.tableView.reloadData()
             })
+        } else {
+            println("default query")
+            refreshTMS(self)
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "movieDetailSegue" {
             var indexPath = tableView.indexPathForSelectedRow()
-            var movie = self.movies![indexPath!.row]
             var svc = segue.destinationViewController as MovieDetailViewController
-            svc.movieId = movie.id
+            svc.movie = self.movies![indexPath!.row]
         } else if (segue.identifier == "theatersSegue") {
             var svc = segue.destinationViewController as TheatersViewController
         }
+    }
+
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        self.currentCoord = manager.location.coordinate
+        println("locations = \(self.currentCoord.latitude) \(self.currentCoord.longitude)")
     }
 }
 

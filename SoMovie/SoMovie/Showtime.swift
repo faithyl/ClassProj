@@ -23,8 +23,16 @@ class Showtime: NSObject {
         theaterName = theatre["name"] as String!
         barg = dictionary["barg"] as Int!
         dateTime = dictionary["dateTime"] as String!
-        ticketURI = dictionary["ticketURI"] as String!
-        quals = dictionary["quals"] as String!
+        if dictionary["ticketURI"] != nil {
+            ticketURI = dictionary["ticketURI"] as String!
+        } else {
+            ticketURI = ""
+        }
+        if dictionary["quals"] != nil {
+            quals = dictionary["quals"] as String!
+        } else {
+            quals = ""
+        }
     }
     
     
