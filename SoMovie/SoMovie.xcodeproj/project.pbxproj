@@ -12,6 +12,7 @@
 		2E2265B719EE6A9400DF8F20 /* Theater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2265B619EE6A9400DF8F20 /* Theater.swift */; };
 		2E49DB4E19EFBF7700355C12 /* TheatersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49DB4D19EFBF7700355C12 /* TheatersViewController.swift */; };
 		2E49DB5019EFBF9600355C12 /* TheaterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E49DB4F19EFBF9600355C12 /* TheaterCell.swift */; };
+		2E53768719F656BC00618565 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E53768619F656BC00618565 /* VideoViewController.swift */; };
 		2EC0C20319E79F9C00A5D692 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C20219E79F9C00A5D692 /* AppDelegate.swift */; };
 		2EC0C20519E79F9C00A5D692 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC0C20419E79F9C00A5D692 /* MoviesViewController.swift */; };
 		2EC0C20819E79F9C00A5D692 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EC0C20619E79F9C00A5D692 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		2E2265B619EE6A9400DF8F20 /* Theater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theater.swift; sourceTree = "<group>"; };
 		2E49DB4D19EFBF7700355C12 /* TheatersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheatersViewController.swift; sourceTree = "<group>"; };
 		2E49DB4F19EFBF9600355C12 /* TheaterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheaterCell.swift; sourceTree = "<group>"; };
+		2E53768619F656BC00618565 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		2EC0C1FD19E79F9C00A5D692 /* SoMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EC0C20119E79F9C00A5D692 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EC0C20219E79F9C00A5D692 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				2E49DB4D19EFBF7700355C12 /* TheatersViewController.swift */,
 				2EE2CAA219F22F3F005DEA3A /* TheaterShowtimesViewController.swift */,
 				C983EEB019E871B200A48FDF /* DatePickerViewController.swift */,
+				2E53768619F656BC00618565 /* VideoViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				2EE2CAA319F22F3F005DEA3A /* TheaterShowtimesViewController.swift in Sources */,
 				2ED9C36319F21A4500F68436 /* Showtime.swift in Sources */,
 				C983EEB119E871B200A48FDF /* DatePickerViewController.swift in Sources */,
+				2E53768719F656BC00618565 /* VideoViewController.swift in Sources */,
 				2E49DB4E19EFBF7700355C12 /* TheatersViewController.swift in Sources */,
 				2EE2CAA519F22F62005DEA3A /* ShowtimeCell.swift in Sources */,
 				2E49DB5019EFBF9600355C12 /* TheaterCell.swift in Sources */,
