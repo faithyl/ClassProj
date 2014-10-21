@@ -12,15 +12,36 @@ class ShowtimeCell: UITableViewCell {
 
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movietitleLabel: UILabel!
-    
-    var showtimeSegment: UISegmentedControl!
+    @IBOutlet weak var showtimeSegment: UISegmentedControl!
+    @IBOutlet weak var stscrollView: UIScrollView!
     
     var showtime : Movie! {
+        
+        //showtimeSegment2.frame = CGRectMake(63, 50, 113, 21)
+            
         willSet(movie) {
             var posterURL = movie?.thumbnail as String!
             posterImage.setImageWithURL(NSURL(string: posterURL))
             movietitleLabel.text = movie?.title
+            var showtimes = movie.showtimes as [Showtime]!
+            println(showtimes)
+            var iCount : Int = 0
+            for item in showtimes {
+                let st = item as Showtime!
+                var time = st.dateTime as String!
+                if (iCount >= 2) {
+                    showtimeSegment.insertSegmentWithTitle(time, atIndex: iCount, animated: true)
+                } else {
+                    showtimeSegment.setTitle(time, forSegmentAtIndex: iCount)
+                }
+                iCount += 1
             }
+            showtimeSegment.selectedSegmentIndex = 0
+            if (showtimes.count < 2) {
+                showtimeSegment.removeSegmentAtIndex(1, animated: false)
+            }
+            stscrollView.contentSize.width = showtimeSegment.frame.width
+        }
     }
     
     override func awakeFromNib() {

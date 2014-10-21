@@ -39,9 +39,15 @@ class TheaterShowtimesViewController: UIViewController, UITableViewDataSource, U
     {
         var tId = theater?.id
         
+        var todaysDate:NSDate = NSDate()
+        var dateFormatter:NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        var DateInFormat:String = dateFormatter.stringFromDate(todaysDate)
+        
         var params = [
             "theaterId" : tId!,
-            "numDays" : "7"
+            "startDate" : DateInFormat,
+            "numDays" : "1"
         ]
         
         TheaterClient.sharedInstance.getTheaterShowtimes(params, completion: { (movies, error) -> () in
