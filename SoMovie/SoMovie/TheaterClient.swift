@@ -69,5 +69,42 @@ class TheaterClient: BDBOAuth1RequestOperationManager {
         )
     }
 
+    func getMovies(params: [String: String], completion: (movies: [Movie]?, error: NSError?) -> ()) {
+        var parameters = params;
+        parameters["api_key"] = theaterapiKey
+        GET("movies/showings", parameters: parameters,
+            success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
+                //println("get movies: \(response)")
+                var movies = Movie.moviesWithArray(response as [NSDictionary], isRotten: false)
+                completion(movies: movies, error: nil)
+            },
+            failure: { (operation: AFHTTPRequestOperation!, error:NSError!) -> Void in
+                println("error getting movies from TMS movie showings api")
+                completion(movies: nil, error: error)
+            }
+        )
+    }
 
+    func searchPrograms(params: [String: String], completion: (movies: [Movie]?, error: NSError?) -> ()) {
+        var parameters = params;
+        parameters["queryFields"] = "title"
+        parameters["titleLang"] = "en"
+        parameters["descriptionLang"] = "en"
+        parameters["entityType"] = "movie"
+        parameters["limit"] = "20"
+        parameters["api_key"] = theaterapiKey
+        GET("programs/search", parameters: parameters,
+            success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
+                //println("get movies: \(response)")
+                var searchResult = response as NSDictionary
+                var programList = searchResult["hits"] as [NSDictionary]
+                var movies = Movie.programsWithArray(programList)
+                completion(movies: movies, error: nil)
+            },
+            failure: { (operation: AFHTTPRequestOperation!, error:NSError!) -> Void in
+                println("error getting movies from TMS program search api")
+                completion(movies: nil, error: error)
+            }
+        )
+    }
 }

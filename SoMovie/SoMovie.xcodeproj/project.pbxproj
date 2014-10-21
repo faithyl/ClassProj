@@ -24,9 +24,11 @@
 		2ED9C36319F21A4500F68436 /* Showtime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED9C36219F21A4500F68436 /* Showtime.swift */; };
 		2EE2CAA319F22F3F005DEA3A /* TheaterShowtimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2CAA219F22F3F005DEA3A /* TheaterShowtimesViewController.swift */; };
 		2EE2CAA519F22F62005DEA3A /* ShowtimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2CAA419F22F62005DEA3A /* ShowtimeCell.swift */; };
+		C942B9AA19F5EF9D00B122D7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C942B9A919F5EF9D00B122D7 /* Default-568h@2x.png */; };
 		C957E85319E7DD6F00049513 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C957E85219E7DD6F00049513 /* MovieDetailViewController.swift */; };
 		C983EEB119E871B200A48FDF /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983EEB019E871B200A48FDF /* DatePickerViewController.swift */; };
 		C9E418A719E7B6A000ACFA49 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E418A619E7B6A000ACFA49 /* Movie.swift */; };
+		C9F4B4A019F4B89400BE94C2 /* LocationFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4B49F19F4B89400BE94C2 /* LocationFilterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,10 +64,12 @@
 		2EE2CAA219F22F3F005DEA3A /* TheaterShowtimesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheaterShowtimesViewController.swift; sourceTree = "<group>"; };
 		2EE2CAA419F22F62005DEA3A /* ShowtimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowtimeCell.swift; sourceTree = "<group>"; };
 		6AB3E743B191456E9D360A98 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		C942B9A919F5EF9D00B122D7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		C957E85219E7DD6F00049513 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		C983EEB019E871B200A48FDF /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		C9E4189E19E7A25900ACFA49 /* SoMovie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoMovie-Bridging-Header.h"; sourceTree = "<group>"; };
 		C9E418A619E7B6A000ACFA49 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		C9F4B49F19F4B89400BE94C2 /* LocationFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFilterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 		2EC0C1F419E79F9C00A5D692 = {
 			isa = PBXGroup;
 			children = (
+				C942B9A919F5EF9D00B122D7 /* Default-568h@2x.png */,
 				2EC0C1FF19E79F9C00A5D692 /* SoMovie */,
 				2EC0C21519E79F9C00A5D692 /* SoMovieTests */,
 				2EC0C1FE19E79F9C00A5D692 /* Products */,
@@ -185,6 +190,7 @@
 				2EE2CAA219F22F3F005DEA3A /* TheaterShowtimesViewController.swift */,
 				C983EEB019E871B200A48FDF /* DatePickerViewController.swift */,
 				2E53768619F656BC00618565 /* VideoViewController.swift */,
+				C9F4B49F19F4B89400BE94C2 /* LocationFilterViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EC0C20819E79F9C00A5D692 /* Main.storyboard in Resources */,
+				C942B9AA19F5EF9D00B122D7 /* Default-568h@2x.png in Resources */,
 				2EC0C20D19E79F9C00A5D692 /* LaunchScreen.xib in Resources */,
 				2EC0C20A19E79F9C00A5D692 /* Images.xcassets in Resources */,
 			);
@@ -337,6 +344,7 @@
 				2EC0C22519E7A51D00A5D692 /* TheaterClient.swift in Sources */,
 				2EC0C20519E79F9C00A5D692 /* MoviesViewController.swift in Sources */,
 				2E1E5B6219E7C58B00E29224 /* MovieCell.swift in Sources */,
+				C9F4B4A019F4B89400BE94C2 /* LocationFilterViewController.swift in Sources */,
 				2E2265B719EE6A9400DF8F20 /* Theater.swift in Sources */,
 				2EC0C22319E7A4FF00A5D692 /* RottenClient.swift in Sources */,
 				2EE2CAA319F22F3F005DEA3A /* TheaterShowtimesViewController.swift in Sources */,

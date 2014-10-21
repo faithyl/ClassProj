@@ -113,11 +113,11 @@ class Movie: NSObject {
             theatre_release_date = ""
             links = [String:String]()
             studio = ""
-            if (dictionary["genres"] != nil) {
-                genres = dictionary["genres"] as [String]
-            }
+            genres = (dictionary["genres"] as? [String]) ?? []
             ratings = [String:String]()
-            showtimes = (Showtime.showtimesWithArray(dictionary["showtimes"] as [NSDictionary]))
+            if dictionary["showtimes"] != nil {
+                showtimes = (Showtime.showtimesWithArray(dictionary["showtimes"] as [NSDictionary]))
+            }
         }
     }
     
@@ -126,7 +126,7 @@ class Movie: NSObject {
         var yr : Int
         
         for dictionary in array {
-            println(dictionary)
+            //println(dictionary)
             if (isRotten == false) {
                 yr = (dictionary["releaseYear"] as? Int) ?? 0
             } else {
@@ -134,6 +134,20 @@ class Movie: NSObject {
             }
             if (yr >= 2014) {
                 movies.append(Movie(dictionary: dictionary, isDetail: isDetail, isRotten: isRotten))
+            }
+        }
+        return movies
+    }
+    
+    class func programsWithArray(array: [NSDictionary]) -> [Movie] {
+        var movies = [Movie]()
+        var yr : Int
+        
+        for dictionary in array {
+            var dic = dictionary["program"] as NSDictionary
+            yr = (dic["releaseYear"] as? Int) ?? 0
+            if (yr >= 2014) {
+                movies.append(Movie(dictionary: dic, isDetail: false, isRotten: false))
             }
         }
         return movies
