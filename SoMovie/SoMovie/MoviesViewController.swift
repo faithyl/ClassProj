@@ -89,8 +89,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         let nf = NSNumberFormatter()
         nf.numberStyle = .DecimalStyle
         //default: san francisco
-        //let coord = (self.currentCoord != nil) ? self.currentCoord : CLLocationCoordinate2DMake(37.7833, -122.4167)
-        let coord = CLLocationCoordinate2DMake(37.7833, -122.4167)
+        let coord = (self.currentCoord != nil) ? self.currentCoord : CLLocationCoordinate2DMake(37.7833, -122.4167)
         params["lat"] = nf.stringFromNumber(coord.latitude)
         params["lng"] = nf.stringFromNumber(coord.longitude)
         TheaterClient.sharedInstance.getMovies(params, completion: { (movies, error) -> () in
