@@ -129,4 +129,20 @@ class TheaterClient: BDBOAuth1RequestOperationManager {
         })
     }
 
+    func getMovieShowtimes(params: [String: String], completion: (movies: [Movie]?, error: NSError?) -> ()) {
+        var parameters = params;
+        var movieId = parameters.removeValueForKey("movieId") as String!
+        parameters["api_key"] = theaterapiKey
+        GET("movies/\(movieId)/showings", parameters: parameters,
+            success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
+                //println("get movies: \(response)")
+                var movies = Movie.moviesWithArray(response as [NSDictionary], isRotten: false)
+                completion(movies: movies, error: nil)
+            },
+            failure: { (operation: AFHTTPRequestOperation!, error:NSError!) -> Void in
+                println("error getting movies from TMS movie showtimes api")
+                completion(movies: nil, error: error)
+            }
+        )
+    }
 }

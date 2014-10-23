@@ -30,6 +30,7 @@
 		C957E85319E7DD6F00049513 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C957E85219E7DD6F00049513 /* MovieDetailViewController.swift */; };
 		C983EEB119E871B200A48FDF /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C983EEB019E871B200A48FDF /* DatePickerViewController.swift */; };
 		C9E418A719E7B6A000ACFA49 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E418A619E7B6A000ACFA49 /* Movie.swift */; };
+		C9EE608719F7615E007D0BF4 /* TheaterShowtimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE608619F7615E007D0BF4 /* TheaterShowtimeCell.swift */; };
 		C9F4B4A019F4B89400BE94C2 /* LocationFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F4B49F19F4B89400BE94C2 /* LocationFilterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		C983EEB019E871B200A48FDF /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		C9E4189E19E7A25900ACFA49 /* SoMovie-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SoMovie-Bridging-Header.h"; sourceTree = "<group>"; };
 		C9E418A619E7B6A000ACFA49 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		C9EE608619F7615E007D0BF4 /* TheaterShowtimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TheaterShowtimeCell.swift; sourceTree = "<group>"; };
 		C9F4B49F19F4B89400BE94C2 /* LocationFilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationFilterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -182,6 +184,7 @@
 				2E49DB4F19EFBF9600355C12 /* TheaterCell.swift */,
 				2EE2CAA419F22F62005DEA3A /* ShowtimeCell.swift */,
 				2EA03C7519F7F13D009CF6F2 /* TrailerCell.swift */,
+				C9EE608619F7615E007D0BF4 /* TheaterShowtimeCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				2ED9C36319F21A4500F68436 /* Showtime.swift in Sources */,
 				C983EEB119E871B200A48FDF /* DatePickerViewController.swift in Sources */,
 				2EA03C7619F7F13D009CF6F2 /* TrailerCell.swift in Sources */,
+				C9EE608719F7615E007D0BF4 /* TheaterShowtimeCell.swift in Sources */,
 				2E53768719F656BC00618565 /* VideoViewController.swift in Sources */,
 				2E49DB4E19EFBF7700355C12 /* TheatersViewController.swift in Sources */,
 				2EE2CAA519F22F62005DEA3A /* ShowtimeCell.swift in Sources */,
