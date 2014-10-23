@@ -312,20 +312,19 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feW-r7-Dty">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feW-r7-Dty">
                                                 <rect key="frame" x="10" y="100" width="300" height="74"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No showings found.  Please choose another date or change location filters." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5v-tK-7nl">
-                                                        <rect key="frame" x="0.0" y="10" width="300" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="33.5"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="34" id="YbU-8q-2QT"/>
+                                                            <constraint firstAttribute="height" constant="34" id="Hke-VU-etw"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HGt-5Q-gOA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="74"/>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HGt-5Q-gOA">
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="74" id="FRE-ne-VGC"/>
@@ -337,7 +336,7 @@
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Age-Xf-DSd" id="5MR-Vh-CL8">
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <subviews>
-                                                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nI-no-vgZ">
+                                                                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nI-no-vgZ">
                                                                             <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
                                                                             <subviews>
                                                                                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="KNs-Cg-umC">
@@ -381,10 +380,11 @@
                                                     <constraint firstItem="N5v-tK-7nl" firstAttribute="leading" secondItem="feW-r7-Dty" secondAttribute="leading" id="DDI-xG-LhB"/>
                                                     <constraint firstAttribute="trailing" secondItem="HGt-5Q-gOA" secondAttribute="trailing" id="LfP-6Z-yGY"/>
                                                     <constraint firstItem="HGt-5Q-gOA" firstAttribute="leading" secondItem="feW-r7-Dty" secondAttribute="leading" id="cbC-aN-dYc"/>
+                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="N5v-tK-7nl" secondAttribute="bottom" constant="1" id="dUM-0y-VFk"/>
                                                     <constraint firstAttribute="bottom" secondItem="HGt-5Q-gOA" secondAttribute="bottom" id="hbU-fJ-Xhc"/>
                                                     <constraint firstAttribute="trailing" secondItem="N5v-tK-7nl" secondAttribute="trailing" id="kDP-Pv-wDx"/>
                                                     <constraint firstItem="HGt-5Q-gOA" firstAttribute="top" secondItem="feW-r7-Dty" secondAttribute="top" id="pip-t0-CK2"/>
-                                                    <constraint firstItem="N5v-tK-7nl" firstAttribute="top" secondItem="feW-r7-Dty" secondAttribute="top" constant="10" id="xun-45-yFx"/>
+                                                    <constraint firstItem="N5v-tK-7nl" firstAttribute="top" secondItem="feW-r7-Dty" secondAttribute="top" id="xun-45-yFx"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theater Info:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WhH-1G-43R">
@@ -510,6 +510,7 @@
                         <outlet property="ratingLabel" destination="CRB-1m-SOK" id="BcH-nS-c0U"/>
                         <outlet property="runtimeLabel" destination="bqA-WL-DfS" id="QZl-or-Xb9"/>
                         <outlet property="scrollView" destination="qys-p3-jXs" id="Ksg-z6-liY"/>
+                        <outlet property="showtimeBottomConstraint" destination="dUM-0y-VFk" id="zfr-tu-gij"/>
                         <outlet property="showtimeErrmsg" destination="N5v-tK-7nl" id="C2l-3c-E2K"/>
                         <outlet property="showtimeTableView" destination="HGt-5Q-gOA" id="5Bf-wR-eBV"/>
                         <outlet property="showtimesHeightConstraint" destination="FRE-ne-VGC" id="KU6-vy-g2K"/>

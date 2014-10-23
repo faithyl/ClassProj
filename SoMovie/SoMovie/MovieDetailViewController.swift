@@ -48,6 +48,7 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
     @IBOutlet weak var showtimeTableView: UITableView!
     @IBOutlet weak var showtimesHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var showtimeBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,20 +88,21 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
     
     func recalcScrollViewSize() -> Void {
         if self.theaterInfoView.hidden {
+            self.showtimeBottomConstraint.constant = 0
             self.showtimesHeightConstraint.constant = 0
             self.theaterInfoView.frame.size.height = 0
         } else {
+            self.showtimeBottomConstraint.constant = 1
             if self.theaters.count > 0 {
                 var newHeight = CGFloat(64 * self.theaters.count)
                 self.theaterInfoView.frame.size.height = newHeight
                 self.showtimesHeightConstraint.constant = newHeight
             } else {
-                self.theaterInfoView.frame.size.height = self.showtimeErrmsg.frame.height + CGFloat(20)
+                self.theaterInfoView.frame.size.height = self.showtimeErrmsg.frame.height
             }
         }
         var theaterinfoHeight = self.theaterInfoView.frame.height
         var castLabelHeight = self.castLabel.hidden ? 0 : self.castLabel.frame.height
-        //self.containerView.frame.size.height = self.titleLabel.frame.height + self.synopsisLabel.frame.height + castLabelHeight + showtimeTableViewHeight + 160;
         self.containerHeightConstraint.constant = self.titleLabel.frame.height + self.synopsisLabel.frame.height + castLabelHeight + theaterinfoHeight + 180;
         var scrollViewHeight = self.containerHeightConstraint.constant + self.containerView.frame.origin.y
         self.scrollView.contentSize = CGSize(width:self.view.frame.width, height: scrollViewHeight)
