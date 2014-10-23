@@ -86,14 +86,17 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
     }
     
     func recalcScrollViewSize() -> Void {
-        //var showtimeTableViewHeight = self.showtimesHeightConstraint.constant
         if self.theaterInfoView.hidden {
             self.showtimesHeightConstraint.constant = 0
             self.theaterInfoView.frame.size.height = 0
         } else {
-            var newHeight = CGFloat(64 * self.theaters.count)
-            self.theaterInfoView.frame.size.height = newHeight
-            self.showtimesHeightConstraint.constant = newHeight
+            if self.theaters.count > 0 {
+                var newHeight = CGFloat(64 * self.theaters.count)
+                self.theaterInfoView.frame.size.height = newHeight
+                self.showtimesHeightConstraint.constant = newHeight
+            } else {
+                self.theaterInfoView.frame.size.height = self.showtimeErrmsg.frame.height + CGFloat(20)
+            }
         }
         var theaterinfoHeight = self.theaterInfoView.frame.height
         var castLabelHeight = self.castLabel.hidden ? 0 : self.castLabel.frame.height
@@ -190,6 +193,9 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
             let theater = sender as Theater
             var dvc = vc as TheaterShowtimesViewController
             dvc.theater = theater
+        } else if segue.identifier == "videoSegue" {
+            var dvc = vc as VideoViewController
+            dvc.rootId = self.movieId
         }
     }
     
@@ -404,6 +410,10 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
             self.theaterInfoView.hidden = true
         }
         self.recalcScrollViewSize()
+    }
+    
+    @IBAction func onTitleTapped(sender: UITapGestureRecognizer) {
+        self.performSegueWithIdentifier("videoSegue", sender: self)
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {

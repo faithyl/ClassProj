@@ -136,14 +136,18 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxK-4B-hhg">
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxK-4B-hhg">
                                                 <rect key="frame" x="30" y="10" width="280" height="20"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="280" id="mJy-n7-7pa"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="zB8-Lt-AJi" appends="YES" id="gP1-yV-tqH"/>
+                                                </connections>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ra" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRB-1m-SOK">
                                                 <rect key="frame" x="30" y="30" width="15.5" height="20"/>
@@ -311,11 +315,10 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feW-r7-Dty">
                                                 <rect key="frame" x="10" y="100" width="300" height="74"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No showings found.  Please choose another date or change location filters." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5v-tK-7nl">
-                                                        <rect key="frame" x="0.0" y="10" width="300" height="54"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No showings found.  Please choose another date or change location filters." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5v-tK-7nl">
+                                                        <rect key="frame" x="0.0" y="10" width="300" height="34"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="54" id="19J-OX-7WQ"/>
-                                                            <constraint firstAttribute="width" constant="300" id="bk4-76-bdG"/>
+                                                            <constraint firstAttribute="height" constant="34" id="YbU-8q-2QT"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -379,6 +382,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="HGt-5Q-gOA" secondAttribute="trailing" id="LfP-6Z-yGY"/>
                                                     <constraint firstItem="HGt-5Q-gOA" firstAttribute="leading" secondItem="feW-r7-Dty" secondAttribute="leading" id="cbC-aN-dYc"/>
                                                     <constraint firstAttribute="bottom" secondItem="HGt-5Q-gOA" secondAttribute="bottom" id="hbU-fJ-Xhc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="N5v-tK-7nl" secondAttribute="trailing" id="kDP-Pv-wDx"/>
                                                     <constraint firstItem="HGt-5Q-gOA" firstAttribute="top" secondItem="feW-r7-Dty" secondAttribute="top" id="pip-t0-CK2"/>
                                                     <constraint firstItem="N5v-tK-7nl" firstAttribute="top" secondItem="feW-r7-Dty" secondAttribute="top" constant="10" id="xun-45-yFx"/>
                                                 </constraints>
@@ -514,9 +518,15 @@
                         <outlet property="theaterInfoView" destination="feW-r7-Dty" id="rrm-zk-6q8"/>
                         <outlet property="titleLabel" destination="ZxK-4B-hhg" id="xhD-XO-YId"/>
                         <segue destination="cQW-4W-UZd" kind="push" identifier="theaterShowtimesSegue" id="VsV-kh-rxR"/>
+                        <segue destination="afI-O7-koj" kind="push" identifier="videoSegue" id="uT0-22-ZIj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CaN-U8-sdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="zB8-Lt-AJi">
+                    <connections>
+                        <action selector="onTitleTapped:" destination="BW5-Sb-ffY" id="CuR-aC-sp4"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="797" y="63"/>
         </scene>
@@ -1044,6 +1054,7 @@
                             <constraint firstItem="122-2T-LXs" firstAttribute="top" secondItem="hhS-yG-FaA" secondAttribute="bottom" constant="16" id="kRJ-9W-QHL"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="0EG-1e-ASx"/>
                     <connections>
                         <outlet property="tableView" destination="122-2T-LXs" id="rkO-D7-dAZ"/>
                         <outlet property="titleLabel" destination="hhS-yG-FaA" id="7KI-PO-rpa"/>
