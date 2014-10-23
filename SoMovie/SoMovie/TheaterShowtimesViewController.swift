@@ -27,9 +27,18 @@ class TheaterShowtimesViewController: UIViewController, UITableViewDataSource, U
         tableView.delegate = self
         
         self.theaternameLabel.text = theater?.name
-        self.streetLabel.text = theater?.street
-        self.addressLabel.text = theater!.city + ", " + theater!.state + " " + theater!.postalCode
-        self.phoneLabel.text = theater?.telephone
+        
+        if (theater?.street == nil) {
+            TheaterClient.sharedInstance.getTheaterDetail(theater.id, completion: { (theatre, error) -> () in
+                self.streetLabel.text = theatre?.street
+                self.addressLabel.text = theatre!.city + ", " + theatre!.state + " " + theatre!.postalCode
+                self.phoneLabel.text = theatre?.telephone
+            })
+        } else {
+            self.streetLabel.text = theater?.street
+            self.addressLabel.text = theater!.city + ", " + theater!.state + " " + theater!.postalCode
+            self.phoneLabel.text = theater?.telephone
+        }
         
         self.refresh(self)
         // Do any additional setup after loading the view.

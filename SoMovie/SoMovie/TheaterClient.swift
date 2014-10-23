@@ -145,4 +145,20 @@ class TheaterClient: BDBOAuth1RequestOperationManager {
             }
         )
     }
+    
+    func getTheaterDetail(theaterId: String, completion: (theater: Theater?, error: NSError?) -> ()) {
+        var parameters = ["api_key" : theaterapiKey]
+        GET("theatres/\(theaterId)", parameters: parameters,
+            success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
+                println("Theater: \(response)")
+                var theater = Theater(dictionary: response as NSDictionary)
+                completion(theater: theater, error: nil)
+            },
+            failure: { (operation: AFHTTPRequestOperation!, error:NSError!) -> Void in
+                println("error getting theater detail info")
+                completion(theater: nil, error: error)
+            }
+        )
+    }
+
 }
