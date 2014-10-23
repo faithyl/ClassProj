@@ -42,7 +42,12 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
     @IBOutlet weak var criticsScoreLabel: UILabel!
     @IBOutlet weak var directorLabel: UILabel!
     @IBOutlet weak var castLabel: UILabel!
+    @IBOutlet weak var theaterInfoBtn: UIButton!
+    @IBOutlet weak var theaterInfoView: UIView!
+    @IBOutlet weak var showtimeErrmsg: UILabel!
     @IBOutlet weak var showtimeTableView: UITableView!
+    @IBOutlet weak var showtimesHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +66,7 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
         
         showtimeTableView.dataSource = self
         showtimeTableView.delegate = self
-        showtimeTableView.estimatedRowHeight = 80
+        showtimeTableView.estimatedRowHeight = 64
         showtimeTableView.rowHeight = UITableViewAutomaticDimension
         
         self.movieId = self.movie.id
@@ -71,7 +76,8 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
         self.setDateButtonTitle(self.queryDate)
         self.setLocationButtonTitle(self.queryZip)
         
-        self.updateShowtimes()
+        self.theaterInfoView.hidden = true
+        self.updateShowtimes(refreshDetail: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,10 +86,20 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
     }
     
     func recalcScrollViewSize() -> Void {
-        var showtimeTableViewHeight = self.showtimeTableView.frame.height
+        //var showtimeTableViewHeight = self.showtimesHeightConstraint.constant
+        if self.theaterInfoView.hidden {
+            self.showtimesHeightConstraint.constant = 0
+            self.theaterInfoView.frame.size.height = 0
+        } else {
+            var newHeight = CGFloat(64 * self.theaters.count)
+            self.theaterInfoView.frame.size.height = newHeight
+            self.showtimesHeightConstraint.constant = newHeight
+        }
+        var theaterinfoHeight = self.theaterInfoView.frame.height
         var castLabelHeight = self.castLabel.hidden ? 0 : self.castLabel.frame.height
-        self.containerView.frame.size.height = self.titleLabel.frame.height + self.synopsisLabel.frame.height + castLabelHeight + showtimeTableViewHeight + 180;
-        var scrollViewHeight = self.containerView.frame.height + self.containerView.frame.origin.y
+        //self.containerView.frame.size.height = self.titleLabel.frame.height + self.synopsisLabel.frame.height + castLabelHeight + showtimeTableViewHeight + 160;
+        self.containerHeightConstraint.constant = self.titleLabel.frame.height + self.synopsisLabel.frame.height + castLabelHeight + theaterinfoHeight + 180;
+        var scrollViewHeight = self.containerHeightConstraint.constant + self.containerView.frame.origin.y
         self.scrollView.contentSize = CGSize(width:self.view.frame.width, height: scrollViewHeight)
     }
     
@@ -122,6 +138,15 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.theaters[section]
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var label : UILabel = UILabel(frame: CGRect(x: 10, y: 0, width: 300, height: 20))
+        label.font = UIFont.boldSystemFontOfSize(14)
+        label.text = self.tableView(tableView, titleForHeaderInSection: section)
+        var view : UIView = UIView()
+        view.addSubview(label)
+        return view
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -239,13 +264,12 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
         return params
     }
     
-    func updateShowtimes() {
+    func updateShowtimes(refreshDetail:Bool = false) {
         var params = assembleMovieShowtimesParams()
-println(params)
         TheaterClient.sharedInstance.getMovieShowtimes(params, completion: { (movies, error) -> () in
             if error == nil && movies!.count > 0 {
                 self.movie = movies![0]
-            } else if movies!.count == 0 {
+            } else if error != nil || movies!.count == 0 {
                 self.movie.showtimes = []
             }
             
@@ -260,6 +284,7 @@ println(params)
             self.listCast()
             self.normalizeShowtimeInfo()
             self.showtimeTableView.reloadData()
+            self.showtimesHeightConstraint.constant = CGFloat(64 * self.theaters.count)
             if self.theaters.count == 0 {
                 self.showtimeTableView.hidden = true
             } else {
@@ -267,21 +292,23 @@ println(params)
             }
             self.recalcScrollViewSize()
         })
-        params = ["q": self.movie.title, "page_limit": "5"]
-        //directors are only available in the movie detail api, so need to call two rotten apis to get the data
-        RottenClient.sharedInstance.searchWithParams(params, completion: { (movies, error) -> () in
-            var rMovie = self.getMatchingMovieByTitle(movies!, title: self.movie.title) ?? nil
-            if rMovie != nil {
-                RottenClient.sharedInstance.getMovieDetail(rMovie!.id, completion: { (rottenMovie, error) -> () in
-                    self.rottenMovie = rottenMovie
-                    self.ratingLabel.text = self.rottenMovie!.mpaa_rating
-                    self.runtimeLabel.text = "\(self.rottenMovie!.runtime) min"
-                    self.audienceScoreLabel.text = String(self.rottenMovie!.audience_score)
-                    self.criticsScoreLabel.text = String(self.rottenMovie!.critics_score)
-                    self.directorLabel.text = join(", ", self.rottenMovie!.abridged_directors)
-                })
-            }
-        })
+        if refreshDetail {
+            params = ["q": self.movie.title, "page_limit": "5"]
+            //directors are only available in the movie detail api, so need to call two rotten apis to get the data
+            RottenClient.sharedInstance.searchWithParams(params, completion: { (movies, error) -> () in
+                var rMovie = self.getMatchingMovieByTitle(movies!, title: self.movie.title) ?? nil
+                if rMovie != nil {
+                    RottenClient.sharedInstance.getMovieDetail(rMovie!.id, completion: { (rottenMovie, error) -> () in
+                        self.rottenMovie = rottenMovie
+                        self.ratingLabel.text = self.rottenMovie!.mpaa_rating
+                        self.runtimeLabel.text = "\(self.rottenMovie!.runtime) min"
+                        self.audienceScoreLabel.text = String(self.rottenMovie!.audience_score)
+                        self.criticsScoreLabel.text = String(self.rottenMovie!.critics_score)
+                        self.directorLabel.text = join(", ", self.rottenMovie!.abridged_directors)
+                    })
+                }
+            })
+        }
     }
     
     func normalizeShowtimeInfo() -> Void {
@@ -306,22 +333,22 @@ println(params)
             self.theaters.append(currentTheater)
             self.showtimes.append(times)
         }
-        println(self.theaters)
-        println(self.showtimes)
     }
     
     @IBAction func invokeEmail(sender: UIButton) {
         if MFMailComposeViewController.canSendMail() {
+            var dateString = self.selectedDate ?? ""
+            var theaterString = self.selectedTheater ?? ""
             var movieInfo : [String] = []
-            movieInfo.append("Title:\t\(self.titleLabel.text)")
-            movieInfo.append("Runtime:\t\(self.runtimeLabel.text) min")
-            movieInfo.append("Theater:\ttheatre")
-            movieInfo.append("Showtime:\tshowtime")
-            movieInfo.append("Theater Address:\ttheater address")
-            movieInfo.append("Synopsis:\nsysnopsis")
+            movieInfo.append("Title:\t\t" + self.titleLabel.text!)
+            movieInfo.append("Showtime:\t" + dateString)
+            movieInfo.append("Runtime:\t" + self.runtimeLabel.text!)
+            movieInfo.append("Theater:\t" + theaterString)
+            movieInfo.append("Theater Address:\ntheater address")
+            movieInfo.append("Synopsis:\n" + self.synopsisLabel.text!)
             var movieInfoString = join("\n", movieInfo)
-            app.email!.setSubject("Movie Invitation - title")
-            app.email!.setMessageBody("test", isHTML: false)
+            app.email!.setSubject("Movie Invitation - " + self.titleLabel.text!)
+            app.email!.setMessageBody(movieInfoString, isHTML: false)
             self.presentViewController(app.email!, animated: true, completion: nil)
         } else {
             var alert = UIAlertController(title: "Alert", message: "Your device cannot send emails", preferredStyle: UIAlertControllerStyle.Alert)
@@ -338,6 +365,18 @@ println(params)
         var date = dateButton.titleForState(UIControlState.Normal)
         var time = sender.titleForSegmentAtIndex(sender.selectedSegmentIndex)
         self.selectedDate = date! + " " + time!
+    }
+    
+    @IBAction func onTheaterInfoToggle(sender: UIButton) {
+        var txt = sender.titleLabel?.text
+        if txt == ">" {
+            sender.setTitle("v", forState: UIControlState.Normal)
+            self.theaterInfoView.hidden = false
+        } else {
+            sender.setTitle(">", forState: UIControlState.Normal)
+            self.theaterInfoView.hidden = true
+        }
+        self.recalcScrollViewSize()
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {

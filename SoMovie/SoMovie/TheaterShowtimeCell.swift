@@ -31,6 +31,7 @@ class TheaterShowtimeCell: UITableViewCell {
                     segmentedCtrl.removeSegmentAtIndex(idx, animated: false)
                 }
             }
+            segmentedCtrl.selectedSegmentIndex = -1
             scrollView.contentSize.width = segmentedCtrl.frame.width
         }
     }

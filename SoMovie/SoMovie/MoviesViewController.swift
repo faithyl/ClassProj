@@ -154,7 +154,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
 
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         self.currentCoord = manager.location.coordinate
-        println("locations = \(self.currentCoord.latitude) \(self.currentCoord.longitude)")
+        //println("locations = \(self.currentCoord.latitude) \(self.currentCoord.longitude)")
     }
 }
 
