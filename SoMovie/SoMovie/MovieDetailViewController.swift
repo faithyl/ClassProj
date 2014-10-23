@@ -167,6 +167,7 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
                 index = indexPath.section
             }
             var theater = self.theaters[index]
+            self.performSegueWithIdentifier("theaterShowtimesSegue", sender: theater)
         }
     }
     
@@ -185,6 +186,10 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
         } else if segue.identifier == "locationFilterSegue" {
             var dvc = vc as LocationFilterViewController
             dvc.delegate = self
+        } else if segue.identifier == "theaterShowtimesSegue" {
+            let theater = sender as Theater
+            var dvc = vc as TheaterShowtimesViewController
+            dvc.theater = theater
         }
     }
     

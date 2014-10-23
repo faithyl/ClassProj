@@ -513,11 +513,12 @@
                         <outlet property="theaterInfoBtn" destination="cBD-qH-mAp" id="V2M-zw-sAD"/>
                         <outlet property="theaterInfoView" destination="feW-r7-Dty" id="rrm-zk-6q8"/>
                         <outlet property="titleLabel" destination="ZxK-4B-hhg" id="xhD-XO-YId"/>
+                        <segue destination="cQW-4W-UZd" kind="push" identifier="theaterShowtimesSegue" id="VsV-kh-rxR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CaN-U8-sdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="870" y="39"/>
+            <point key="canvasLocation" x="797" y="63"/>
         </scene>
         <!--Date Picker View Controller-->
         <scene sceneID="Qxm-62-NSX">
@@ -1058,4 +1059,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="VsV-kh-rxR"/>
+    </inferredMetricsTieBreakers>
 </document>
