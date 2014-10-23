@@ -107,4 +107,26 @@ class TheaterClient: BDBOAuth1RequestOperationManager {
             }
         )
     }
+    
+    func getScreenPlayTrailers(params: [String: String], completion: (trailers: [Trailer]?, error: NSError?) -> ()) {
+        var parameters = params
+        var rootId = parameters.removeValueForKey("rootId") as String!
+        
+        parameters["api_key"] = theaterapiKey
+        
+        GET("screenplayTrailers?rootids=\(rootId)" ,
+            parameters: parameters,
+            success: { (operation:AFHTTPRequestOperation!, response:AnyObject!) -> Void in
+                //println("get Trailer: \(response)")
+                let resp = response["response"] as NSDictionary
+                var trailerlist = resp["trailers"] as [NSDictionary]
+                var trailers = Trailer.trailerWithArray(trailerlist)
+                completion(trailers: trailers, error: nil)
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                println("error getting trailers")
+                //self.loginCompletion? (user: nil, error: error)
+                completion(trailers: nil, error: error)
+        })
+    }
+
 }

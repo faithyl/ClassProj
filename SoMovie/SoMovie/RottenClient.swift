@@ -36,8 +36,7 @@ class RottenClient: BDBOAuth1RequestOperationManager {
         )
     }
     
-    func searchWithParams(params: [String: String],
-        completion: (movies: [Movie]?, error: NSError?) -> ()) {
+    func searchWithParams(params: [String: String], completion: (movies: [Movie]?, error: NSError?) -> ()) {
             var parameters = params
             parameters["apikey"] = apiKey
             GET("movies.json" ,
