@@ -44,28 +44,29 @@ class VideoViewController: UIViewController, UITableViewDataSource, UITableViewD
                 //self.errmsgView.hidden = false
             } else {
                 if (trailers != nil) {
-                    //println("\(theater!.count) theater showtimes")
+                    println("\(trailers!.count) trailer")
+                    
+                    self.trailers = trailers
+                    
+                    //println(self.trailers?.first?.url)
+                    var urlStr = self.trailers?.first?.url as String!
+                    var url:NSURL = NSURL(string: urlStr)
+                    self.moviePlayer = MPMoviePlayerController(contentURL: url)
+                    self.moviePlayer.view.frame = CGRect(x: 10, y: 70, width: 300, height: 150)
+                    self.view.addSubview(self.moviePlayer.view)
+                    self.moviePlayer.fullscreen = false
+                    self.moviePlayer.controlStyle = MPMovieControlStyle.Embedded
+                    
+                    let desc = self.trailers?.first?.trailerDesc as String!
+                    var trDesc = (desc as NSString).substringFromIndex(1)
+                    var strCount = countElements(trDesc)
+                    self.titleLabel.text = (trDesc as NSString).substringToIndex(strCount-1)
+                    
+                    self.tableView.reloadData()
+
                 } else {
                     //println("no theater showtimes")
                 }
-                
-                self.trailers = trailers
-                
-                //println(self.trailers?.first?.url)
-                var urlStr = self.trailers?.first?.url as String!
-                var url:NSURL = NSURL(string: urlStr)
-                self.moviePlayer = MPMoviePlayerController(contentURL: url)
-                self.moviePlayer.view.frame = CGRect(x: 10, y: 70, width: 300, height: 150)
-                self.view.addSubview(self.moviePlayer.view)
-                self.moviePlayer.fullscreen = false
-                self.moviePlayer.controlStyle = MPMovieControlStyle.Embedded
-                
-                let desc = self.trailers?.first?.trailerDesc as String!
-                var trDesc = (desc as NSString).substringFromIndex(1)
-                var strCount = countElements(trDesc)
-                self.titleLabel.text = (trDesc as NSString).substringToIndex(strCount-1)
-                
-                self.tableView.reloadData()
             }
         })
         

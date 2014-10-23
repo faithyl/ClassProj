@@ -19,8 +19,8 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXT-dx-Y9p">
                                 <rect key="frame" x="0.0" y="519" width="320" height="44"/>
                                 <items>
-                                    <barButtonItem title="Item" id="vYg-MJ-cbN"/>
-                                    <barButtonItem title="Theater" id="QGR-AX-vkN">
+                                    <barButtonItem image="film50" id="vYg-MJ-cbN"/>
+                                    <barButtonItem image="theater3" id="QGR-AX-vkN">
                                         <connections>
                                             <segue destination="iCu-7G-bFO" kind="push" identifier="theatersSegue" id="5cc-7T-hOg"/>
                                         </connections>
@@ -1065,6 +1065,10 @@
             <point key="canvasLocation" x="904" y="792"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="film50" width="24" height="24"/>
+        <image name="theater3" width="24" height="24"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
