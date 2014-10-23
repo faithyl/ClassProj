@@ -13,6 +13,7 @@ class Theater: NSObject {
     var id : String
     var name : String
     var street : String
+    var street2 : String = ""
     var city : String
     var state : String
     var postalCode : String
@@ -29,11 +30,15 @@ class Theater: NSObject {
         if let location = dictionary["location"] as? NSDictionary {
             let address = location["address"] as [String:String]
             street = address["street"] as String!
+            if (address["street2"] != nil) {
+                var st2 = address["street2"] as String!
+                street2 = ", \(st2)"
+            }
             city = address["city"] as String!
             state = address["state"] as String!
             postalCode = address["postalCode"] as String!
             country = address["country"] as String!
-            distance = location["distance"] as Double!
+            distance = (location["distance"] as Double!) ?? 0
             telephone = (location["telephone"] as String!) ?? ""
             let geoCode = location["geoCode"] as [String:String]
             longitude = geoCode["longitude"] as String!

@@ -28,9 +28,9 @@ class TheaterShowtimesViewController: UIViewController, UITableViewDataSource, U
         
         self.theaternameLabel.text = theater?.name
         
-        if (theater?.street == nil) {
+        if (theater?.street == "") {
             TheaterClient.sharedInstance.getTheaterDetail(theater.id, completion: { (theatre, error) -> () in
-                self.streetLabel.text = theatre?.street
+                self.streetLabel.text = theatre!.street + theatre!.street2
                 self.addressLabel.text = theatre!.city + ", " + theatre!.state + " " + theatre!.postalCode
                 self.phoneLabel.text = theatre?.telephone
             })
