@@ -26,18 +26,29 @@ class Theater: NSObject {
     init(dictionary: NSDictionary) {
         id = dictionary["theatreId"] as String!
         name = dictionary["name"] as String
-        var location = dictionary["location"] as NSDictionary
-        var address = location["address"] as [String:String]
-        street = address["street"] as String!
-        city = address["city"] as String!
-        state = address["state"] as String!
-        postalCode = address["postalCode"] as String!
-        country = address["country"] as String!
-        distance = location["distance"] as Double!
-        telephone = (location["telephone"] as String!) ?? ""
-        var geoCode = location["geoCode"] as [String:String]
-        longitude = geoCode["longitude"] as String!
-        latitude = geoCode["latitude"] as String!
+        if let location = dictionary["location"] as? NSDictionary {
+            let address = location["address"] as [String:String]
+            street = address["street"] as String!
+            city = address["city"] as String!
+            state = address["state"] as String!
+            postalCode = address["postalCode"] as String!
+            country = address["country"] as String!
+            distance = location["distance"] as Double!
+            telephone = (location["telephone"] as String!) ?? ""
+            let geoCode = location["geoCode"] as [String:String]
+            longitude = geoCode["longitude"] as String!
+            latitude = geoCode["latitude"] as String!
+        } else {
+            street = ""
+            city = ""
+            state = ""
+            postalCode = ""
+            country = ""
+            distance = 0
+            telephone = ""
+            longitude = ""
+            latitude = ""
+        }
     }
     
     class func theatersWithArray(array: [NSDictionary]) -> [Theater] {

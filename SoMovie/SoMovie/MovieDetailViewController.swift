@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 import MessageUI
 
-class MovieDetailViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, DatePickerDelegate, LocationFilterDelegate, CLLocationManagerDelegate, MFMailComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate {
+class MovieDetailViewController: UIViewController, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning, DatePickerDelegate, LocationFilterDelegate, CLLocationManagerDelegate, MFMailComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, UIGestureRecognizerDelegate {
     let app = UIApplication.sharedApplication().delegate as AppDelegate
     let locationManager = CLLocationManager()
     var movieId : String!
@@ -21,7 +21,7 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
     var queryZip: String!
     var queryRadius: Int!
     var currentCoord: CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.7833, -122.4167)
-    var theaters : [String] = []
+    var theaters : [Theater] = []
     var showtimes : [[String]] = []
     var selectedTheater : String?
     var selectedDate : String?
@@ -137,7 +137,7 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
     }
     
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.theaters[section]
+        return self.theaters[section].name
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -146,6 +146,10 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
         label.text = self.tableView(tableView, titleForHeaderInSection: section)
         var view : UIView = UIView()
         view.addSubview(label)
+        view.userInteractionEnabled = true
+        var tgr = UITapGestureRecognizer(target: self, action: "onTheaterTap:")
+        tgr.delegate = self
+        view.addGestureRecognizer(tgr)
         return view
     }
     
@@ -153,6 +157,17 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
         var cell = tableView.dequeueReusableCellWithIdentifier("TheaterShowtimeCell") as TheaterShowtimeCell
         cell.showtimes = self.showtimes[indexPath.section]
         return cell
+    }
+    
+    func onTheaterTap(recognizer: UITapGestureRecognizer) -> Void {
+        if self.theaters.count > 0 {
+            var point = recognizer.locationInView(self.showtimeTableView)
+            var index : Int = 0
+            if let indexPath = showtimeTableView.indexPathForRowAtPoint(point) {
+                index = indexPath.section
+            }
+            var theater = self.theaters[index]
+        }
     }
     
     // MARK: - Navigation
@@ -313,24 +328,31 @@ class MovieDetailViewController: UIViewController, UIViewControllerTransitioning
     
     func normalizeShowtimeInfo() -> Void {
         var lastTheater = ""
+        var lastTheaterId = ""
         var currentTheater = ""
         var times : [String]!
+        var th : [String:String] = [:]
         self.theaters.removeAll(keepCapacity: false)
         self.showtimes.removeAll(keepCapacity: false)
         for showtime in self.movie.showtimes {
             currentTheater = showtime.theaterName
             if currentTheater != lastTheater {
                 if lastTheater != "" {
-                    self.theaters.append(lastTheater)
+                    th["theatreId"] = lastTheaterId
+                    th["name"] = lastTheater
+                    self.theaters.append(Theater(dictionary: th))
                     self.showtimes.append(times)
                 }
                 times = []
             }
             times.append(showtime.dateTime)
             lastTheater = currentTheater
+            lastTheaterId = showtime.theaterId
         }
         if currentTheater != "" {
-            self.theaters.append(currentTheater)
+            th["theatreId"] = lastTheaterId
+            th["name"] = lastTheater
+            self.theaters.append(Theater(dictionary: th))
             self.showtimes.append(times)
         }
     }
